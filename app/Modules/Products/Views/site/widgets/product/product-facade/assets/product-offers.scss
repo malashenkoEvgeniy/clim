@@ -1,0 +1,28 @@
+.product-offers {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		content: '';
+		height: rem(12);
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0, #fff);
+	}
+
+	&__list {
+		max-height: rem(230);
+		overflow: auto;
+	}
+
+	&__item {
+		padding-bottom: rem(5);
+		margin-bottom: rem(5);
+		border-bottom: 1px solid rgba($color-black, 0.05);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

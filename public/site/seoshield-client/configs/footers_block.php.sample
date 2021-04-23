@@ -1,0 +1,7 @@
+<?php
+$GLOBALS['SEOSHIELD_CONFIG']['footers_block']['to_replace'] = '<!--footers_block-->';
+$GLOBALS['SEOSHIELD_CONFIG']['footers_block']['move_to_js'] = ''; // ID of element, that will be replaced with JS
+$GLOBALS['SEOSHIELD_CONFIG']['footers_block']['enable_cache'] = true;
+$GLOBALS['SEOSHIELD_CONFIG']['footers_block']['css_web_path'] = '/seoshield-client/core/lib/footers_block.css';
+$GLOBALS['SEOSHIELD_CONFIG']['footers_block']['js_web_path'] = '/seoshield-client/core/lib/footers_block.js';
+$GLOBALS['SEOSHIELD_CONFIG']['footers_api_url'] = 'https://futers.seoshield.ru/api/v1/get/';

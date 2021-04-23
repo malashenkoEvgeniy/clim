@@ -1,0 +1,36 @@
+////
+/// @group blocks/
+////
+
+@import 'settings/defaults';
+@import 'settings/functions/em-rem';
+
+/// Description
+.select {
+	background: $color-gray-1 url(/static/pic/icon-arrow-bottom-thin.svg) center right rem(14) no-repeat;
+	background-size: 1.2rem;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	min-height: rem(40);
+	border-width: 0;
+	font-size: rem(14);
+	line-height: rem(30);
+	padding: rem(5) rem(40) rem(5) rem(16);
+	color: $color-gray-6;
+
+	appearance: none !important; // sass-lint:disable-line no-important
+	text-indent: 0.01px;
+	text-overflow: '';
+
+	&::-ms-expand {
+		display: none;
+	}
+
+	&--size-small {
+		min-height: rem(30);
+		font-size: rem(13);
+		line-height: rem(20);
+		padding: rem(5) rem(40) rem(5) rem(16);
+	}
+}

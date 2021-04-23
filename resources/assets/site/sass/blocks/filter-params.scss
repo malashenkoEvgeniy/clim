@@ -1,0 +1,37 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.filter-param {
+	margin: 0 $gutter-sm $gutter-sm 0;
+	display: flex;
+	align-items: center;
+	border-radius: $border-radius-small;
+	font-size: rem(14px);
+	line-height: 1;
+	background-color: #fef4e8;
+	color: $color-gray-7;
+	text-decoration: none;
+
+	&:hover {
+		background-color: rgba($color-black, .1);
+	}
+
+	&__icon {
+		height: rem(14);
+		width: rem(14);
+		margin-left: 4px;
+		fill: currentColor;
+	}
+
+	&__value {
+		@include ellipsis(260px);
+		padding: 4px 6px;
+	}
+
+	&__clear {
+		padding: 4px 6px;
+		border-radius: 0 $border-radius-small $border-radius-small 0;
+	}
+}

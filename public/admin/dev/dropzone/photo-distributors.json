@@ -1,0 +1,6 @@
+{
+  "url":"/admin/ajax/distributors-upload-photos",
+  "urlUpload":"/admin/ajax/distributors-get-photos",
+  "urlDelete":"/admin/ajax/distributors-delete-photo",
+  "idNumber": null
+}

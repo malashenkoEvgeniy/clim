@@ -1,0 +1,137 @@
+.wishlist-card {
+	$this: &;
+
+	@include preloader();
+
+	box-sizing: border-box;
+	position: relative;
+	display: block;
+	padding: rem(16);
+	background-color: $color-white;
+	color: $color-black;
+	font-size: 14px;
+	font-weight: 400;
+	transition: box-shadow $time-fast ease;
+	will-change: box-shadow;
+
+	@include media($screen-def) {
+		padding: rem(30);
+	}
+
+	&__options {
+		display: inline-block;
+		vertical-align: top;
+
+		.dropdown {
+			text-align: left;
+
+			&__head {
+				background-color: rgba(#fff, .001);
+			}
+
+			&__body {
+				min-width: rem(300);
+			}
+		}
+	}
+
+	&__image {
+		display: block;
+		width: rem(170);
+		height: rem(140);
+		margin: 0 auto;
+		text-decoration: none;
+
+		@include media($screen-xs) {
+			width: rem(100);
+			height: rem(100);
+		}
+
+		@include media($screen-ms) {
+			width: rem(130);
+			height: rem(100);
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center 0;
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&__name {
+		display: block;
+		color: $color-black;
+		text-decoration: none;
+		line-height: 1.2em;
+		max-height: 3.6em;
+		overflow: hidden;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 1.6em;
+			left: 0;
+			right: 0;
+			height: 2em;
+			background: linear-gradient(to bottom, rgba($color-white, 0) 0%, rgba($color-white, 1) 100%);
+		}
+
+		&[href] {
+			&:hover {
+				color: $color-main;
+				text-decoration: underline;
+			}
+
+			&:active {
+				color: $color-main-darken;
+			}
+		}
+	}
+
+	&__price-old {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		color: #737373;
+		font-weight: 300;
+		white-space: nowrap;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: calc(50% - 1px);
+			left: -2px;
+			right: -2px;
+			z-index: 1;
+			display: block;
+			height: 1px;
+			background-color: rgba(#e41a1a, .75);
+		}
+	}
+
+	&__price-current {
+		display: block;
+		font-size: 18px;
+		font-weight: 900;
+		white-space: nowrap;
+	}
+
+	&__added-at {
+		display: block;
+		color: #737373;
+	}
+
+	&.is-active {
+		z-index: 1;
+		margin: 5px rem(-16);
+		box-shadow: 0 10px 50px 0 rgba(14, 29, 67, .15);
+	}
+}

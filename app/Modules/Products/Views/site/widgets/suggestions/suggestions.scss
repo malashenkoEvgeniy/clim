@@ -1,0 +1,106 @@
+.suggestions {
+	display: block;
+	background-color: $color-white;
+
+	@include media($screen-def, max) {
+		overflow: auto;
+		max-height: calc(100vh - 60px);
+	}
+
+	&__footer {
+		position: sticky;
+		bottom: -1px;
+		background: #fff;
+		z-index: 2;
+		display: block;
+		padding: rem(10) rem(16);
+		text-align: center;
+	}
+
+	&__title {
+		display: block;
+		margin: 0;
+		padding: rem(14) 0;
+		color: #000;
+		font-size: rem(20);
+		font-weight: 300;
+	}
+
+	&__item {
+		display: block;
+		padding: rem(10) rem(8);
+		border-bottom: 1px solid #e5e5e5;
+		background-color: rgba($color-white, .001);
+		transition: background-color $time-fast ease;
+		text-decoration: none;
+
+		&:hover {
+			background-color: #fafafb;
+			text-decoration: none;
+		}
+	}
+
+	&__item-image {
+		display: block;
+		width: rem(40);
+		height: rem(40);
+		background-color: #fff;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+
+	&__item-title,
+	&__item-entry {
+		display: block;
+		max-width: 100%;
+		text-decoration: none;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	&__item-title {
+		color: $color-main;
+		margin: 0 0 rem(4);
+		font-size: rem(14);
+		font-weight: 400;
+	}
+
+	&__item-entry {
+		margin: 0 0 rem(6);
+		color: #b5b9c6;
+		font-size: rem(13);
+		font-weight: 300;
+	}
+
+	&__item-price {
+		display: block;
+		margin: 0;
+		color: $color-black;
+		font-size: rem(16);
+		font-weight: 900;
+		text-decoration: none;
+	}
+
+	&__all-results-link {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+		padding: rem(10) 4px;
+		color: $color-main;
+		font-size: rem(14);
+		font-weight: 400;
+		text-align: center;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

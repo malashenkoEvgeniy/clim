@@ -1,0 +1,33 @@
+.reviews-slider {
+	$this: &;
+	position: relative;
+	text-align: center;
+	margin-bottom: $gutter-xxl;
+
+	&__list {
+		max-width: $screen-md;
+		margin: 0 auto;
+		box-sizing: border-box;
+
+		@include media($screen-md) {
+			padding: 0 rem(40);
+		}
+	}
+
+	&__arrows {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: rem(180);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		visibility: hidden;
+	}
+
+	&__dots {
+		// pointer-events: none;
+		margin-top: 1rem;
+	}
+}

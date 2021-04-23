@@ -1,0 +1,84 @@
+.stats {
+	background-color: #fff;
+	padding: $gutter-def $gutter-md;
+	position: relative;
+	min-height: 100%;
+	cursor: default;
+	transition: box-shadow $time-fast ease;
+	box-sizing: border-box;
+
+	@include media($screen-md) {
+		padding: $gutter-xl $gutter-def;
+	}
+
+	&:hover {
+		z-index: 1;
+		box-shadow: $shadow-box-round;
+	}
+
+	&--center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			margin: auto;
+		}
+	}
+
+	&__icon {
+		display: flex;
+		width: rem(65);
+		height: rem(65);
+		margin: 0 0 rem(20);
+
+		svg {
+			margin: auto 0;
+			max-width: 100%;
+			max-height: 100%;
+			fill: $color-main;
+		}
+	}
+
+	&__name {
+		font-size: rem(18);
+		font-weight: $font-weight-bolder;
+		color: $color-black;
+		margin-bottom: rem(20);
+	}
+
+	&__value {
+		font-weight: $font-weight-bolder;
+		color: $color-main;
+		font-size: rem(30px);
+		line-height: 1;
+		margin-bottom: $gutter-sm;
+		transition: color $time-fast ease;
+
+		@include media($screen-xs) {
+			font-size: rem(40px);
+			margin-bottom: $gutter-md;
+		}
+
+		@include media($screen-md) {
+			font-size: rem(60px);
+			margin-bottom: $gutter-def;
+		}
+
+		@include media($screen-def) {
+			@include media($screen-def + 100, max) {
+				font-size: rem(40px);
+				margin-bottom: $gutter-md;
+			}
+		}
+
+		:hover > & {
+			color: $color-black;
+		}
+	}
+
+	&__desc {
+		font-weight: $font-weight-lighter;
+		color: $color-black;
+	}
+}

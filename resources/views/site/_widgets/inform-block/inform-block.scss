@@ -1,0 +1,26 @@
+.inform-block {
+	max-width: 580px;
+	margin: 0 auto;
+
+	&__icon {
+		fill: $color-main;
+		width: rem(110);
+		height: rem(110);
+	}
+
+	&__title {
+		margin: rem(24) 0 rem(30);
+	}
+
+	&__content {
+		margin-bottom: rem(24);
+	}
+
+	&__stats {
+		margin-top: rem(24);
+
+		@include media($screen-def) {
+			margin-top: rem(54);
+		}
+	}
+}

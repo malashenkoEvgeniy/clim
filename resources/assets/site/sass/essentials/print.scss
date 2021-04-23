@@ -1,0 +1,18 @@
+@media print {
+	.is-print-container {
+		visibility: hidden;
+	}
+
+	.print-container {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		visibility: visible;
+	}
+}
+
+@page  {
+	margin: 0.5cm 1cm; // sass-lint:disable-line property-units
+}

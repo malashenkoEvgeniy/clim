@@ -1,0 +1,34 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.zebra {
+	$this: &;
+
+	&__line {
+		&:nth-child(odd) {
+			#{$this}--odd & {
+				@at-root #{$this}--light#{&} {
+					background-color: $color-gray-1;
+				}
+			}
+		}
+
+		&:nth-child(even) {
+			#{$this}--even & {
+				@at-root #{$this}--light#{&} {
+					background-color: $color-gray-1;
+				}
+			}
+		}
+	}
+
+	a {
+		color: $color-secondary;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

@@ -1,0 +1,43 @@
+.action-bar {
+	position: relative;
+	display: flex;
+	min-height: rem(62);
+
+	&--shadow {
+		box-shadow: $shadow-text-light;
+		border-top: 2px solid $color-gray-1;
+	}
+
+	&__side {
+		flex-shrink: 0;
+		width: rem(360);
+	}
+
+	&__wide {
+		position: relative;
+		flex-grow: 1;
+	}
+
+	&__control {
+		position: relative;
+		width: rem(68);
+
+		&--small {
+			width: rem(42);
+		}
+
+		& + & {
+			margin-left: 2px;
+		}
+
+		&:hover,
+		&.is-open {
+			.popover {
+				visibility: visible;
+				opacity: 1;
+				transform: translateY(0) translateZ(0);
+				transition-delay: .4s;
+			}
+		}
+	}
+}

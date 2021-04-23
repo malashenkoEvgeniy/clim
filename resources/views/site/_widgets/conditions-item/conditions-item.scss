@@ -1,0 +1,71 @@
+.conditions-item {
+	border: 1px solid $color-gray-1;
+	padding: rem(10) rem(13);
+
+	&__head {
+		padding-right: 25px;
+		position: relative;
+		cursor: pointer;
+
+		&:hover {
+			background: $color-gray-1;
+			box-shadow: 0 0 0 5px $color-gray-1;
+		}
+
+		&::after {
+			position: absolute;
+			content: '';
+			right: 8px;
+			top: 50%;
+			width: 6px;
+			height: 6px;
+			border: 1px solid $color-main;
+			border-top-width: 0;
+			border-right-width: 0;
+			margin-top: -4px;
+			transform: rotate(-45deg);
+		}
+
+		&.is-open::after {
+			transform: rotate(135deg);
+		}
+	}
+
+	&__icon {
+		display: flex;
+		width: rem(30);
+		height: rem(30);
+		background: $color-white;
+		border-radius: 100%;
+
+		.svg-icon {
+			margin: auto;
+			max-width: 60%;
+			max-height: 60%;
+			fill: $color-gray-5;
+		}
+	}
+
+	&__title {
+		font-size: rem(15);
+		line-height: em(20, 15);
+		color: $color-black;
+		font-weight: $font-weight-bold;
+	}
+
+	&__descr {
+		padding: rem(7) 0;
+		font-size: rem(14);
+	}
+
+	&__link {
+		font-size: rem(13);
+		text-decoration: none;
+		color: $color-gray-5;
+		cursor: pointer;
+
+		&:hover {
+			color: $color-main;
+		}
+	}
+}

@@ -1,0 +1,146 @@
+.popup {
+	$this: &;
+
+	position: relative;
+	display: block;
+	padding: rem(55) 0 rem(60);
+	width: 100%;
+	max-width: 454px;
+	margin: 0 auto;
+	background-color: #fff;
+
+	.wstabs-block {
+		&:not(.is-active) {
+			display: none;
+		}
+	}
+
+	.mfp-close {
+		top: 14px;
+		right: 14px;
+		width: 21px;
+		height: 21px;
+		border: none !important; // sass-lint:disable-line no-important
+		color: #cecece !important; // sass-lint:disable-line no-important
+		font-size: 0 !important; // sass-lint:disable-line no-important
+		opacity: 1;
+		background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIxLjAzIiBoZWlnaHQ9IjIxIiB2aWV3Qm94PSIwIDAgMjEuMDMgMjEiPiAgPGRlZnM+ICAgIDxzdHlsZT4gICAgICAuY2xzLTEgeyAgICAgICAgZmlsbDogI2NiY2JjYjsgICAgICAgIGZpbGwtcnVsZTogZXZlbm9kZDsgICAgICB9ICAgIDwvc3R5bGU+ICA8L2RlZnM+ICA8cGF0aCBkPSJNMTAuNTAyLC0wLjAwMiBDNy42OTgsLTAuMDAyIDUuMDYxLDEuMDkwIDMuMDc3LDMuMDcyIEMxLjA5NCw1LjA1NSAwLjAwMSw3LjY5MyAwLjAwMSwxMC40OTggQy0wLjAwMCwxMy4zMDMgMS4wOTEsMTUuOTQwIDMuMDc1LDE3LjkyMyBDNS4wNTksMTkuOTA2IDcuNjk2LDIwLjk5NyAxMC41MDAsMjAuOTk3IEMxMy4zMDcsMjAuOTk3IDE1Ljk0NSwxOS45MDUgMTcuOTI5LDE3LjkyMSBDMjIuMDI0LDEzLjgyOCAyMi4wMjIsNy4xNjcgMTcuOTI5LDMuMDcyIEMxNS45NDUsMS4wOTAgMTMuMzA4LC0wLjAwMiAxMC41MDIsLTAuMDAyIFpNMTAuNTAyLDEuNzgxIEMxMi44MzAsMS43ODEgMTUuMDIwLDIuNjg4IDE2LjY2OCw0LjMzMyBDMjAuMDY2LDcuNzMyIDIwLjA2NiwxMy4yNjIgMTYuNjY4LDE2LjY2MSBDMTUuMDIwLDE4LjMwOCAxMi44MzAsMTkuMjE0IDEwLjUwMCwxOS4yMTQgQzguMTcyLDE5LjIxNCA1Ljk4MiwxOC4zMDkgNC4zMzYsMTYuNjYzIEMyLjY5MSwxNS4wMTcgMS43ODUsMTIuODI3IDEuNzg1LDEwLjQ5OCBDMS43ODUsOC4xNjkgMi42OTIsNS45ODAgNC4zMzgsNC4zMzMgQzUuOTg0LDIuNjg4IDguMTc0LDEuNzgxIDEwLjUwMiwxLjc4MSBaTTguMDIwLDcuMTI1IEM3Ljc5Miw3LjEyNSA3LjU2NCw3LjIxMiA3LjM5MCw3LjM4NiBDNy4wNDEsNy43MzUgNy4wNDEsOC4yOTggNy4zOTAsOC42NDcgTDkuMjQyLDEwLjQ5OSBMNy4zOTAsMTIuMzUwIEM3LjA0MSwxMi42OTkgNy4wNDEsMTMuMjYzIDcuMzkwLDEzLjYxMSBDNy41NjQsMTMuNzg1IDcuNzkyLDEzLjg3MiA4LjAyMCwxMy44NzIgQzguMjQ4LDEzLjg3MiA4LjQ3NywxMy43ODUgOC42NTEsMTMuNjExIEwxMC41MDMsMTEuNzU5IEwxMi4zNTUsMTMuNjExIEMxMi41MjksMTMuNzg1IDEyLjc1NywxMy44NzIgMTIuOTg1LDEzLjg3MiBDMTMuMjE0LDEzLjg3MiAxMy40NDIsMTMuNzg1IDEzLjYxNiwxMy42MTEgQzEzLjk2NSwxMy4yNjMgMTMuOTY1LDEyLjY5OSAxMy42MTYsMTIuMzUwIEwxMS43NjQsMTAuNDk5IEwxMy42MTYsOC42NDcgQzEzLjk2NSw4LjI5OCAxMy45NjUsNy43MzUgMTMuNjE2LDcuMzg2IEMxMy4yNjcsNy4wMzcgMTIuNzA0LDcuMDM3IDEyLjM1NSw3LjM4NiBMMTAuNTAzLDkuMjM4IEw4LjY1MSw3LjM4NiBDOC40NzYsNy4yMTIgOC4yNDgsNy4xMjUgOC4wMjAsNy4xMjUgWiIgY2xhc3M9ImNscy0xIi8+PC9zdmc+);
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: 21px;
+
+		&:hover {
+			opacity: .7;
+		}
+
+		&:active {
+			top: 14px;
+		}
+
+		&:focus {
+			top: 15px;
+		}
+	}
+
+	&__container {
+		display: block;
+		padding: 0 rem(15);
+
+		@include media($screen-md) {
+			padding: 0 rem(36);
+		}
+	}
+
+	&__head {
+		display: block;
+		margin: 0 0 20px;
+
+		.svg-icon {
+			display: block;
+			width: rem(40);
+			height: rem(40);
+			fill: $color-main;
+			color: $color-main;
+
+			&--icon-ask-consultant {
+				width: rem(60);
+				height: rem(58);
+			}
+		}
+	}
+
+	&__body {
+		display: block;
+	}
+
+	&__footer {
+		display: block;
+		margin: rem(40) 0 0;
+	}
+
+	&__title {
+		display: block;
+		margin: 0 0 4px;
+		padding: 0;
+		color: #000;
+		font-size: rem(30);
+		font-weight: 900;
+	}
+
+	&__desc {
+		display: block;
+		margin: 0;
+		padding: 0;
+		color: #000;
+		font-size: 15px;
+		font-weight: 300;
+	}
+
+	&__social-section {
+		background-color: #f5f5f6;
+
+		#{$this} {
+			&__container {
+				padding-top: rem(36);
+				padding-bottom: rem(48);
+			}
+		}
+	}
+
+	&--callback {
+		max-width: 600px;
+	}
+
+	&--consultation {
+		max-width: 534px;
+	}
+
+	&--regauth,
+	&--login-only {
+		max-width: 574px;
+		padding-bottom: 0;
+	}
+
+	&--cart {
+		max-width: 800px;
+		padding-bottom: 30px;
+
+		#{$this}__container {
+			@include media($screen-md, max) {
+				padding: 0 5px;
+			}
+		}
+
+		.cart-detailed {
+			padding: 0;
+		}
+	}
+
+	&--wishlist-confirm-mass-delete {
+		padding: rem(50) 0 rem(30);
+	}
+
+	&--wysiwyg {
+		max-width: 900px;
+	}
+}

@@ -1,0 +1,102 @@
+@import "settings/all-settings";
+
+.sitemap {
+	position: relative;
+	font-size: 1rem;
+
+	ul {
+		list-style: none;
+		padding: 0 0 0 2em;
+		margin: 0;
+	}
+
+	& > ul {
+		padding: 0;
+		margin: 1em 0;
+		position: relative;
+		overflow: hidden;
+
+		& > li > ul {
+			padding-left: 0;
+		}
+
+		& ul {
+			list-style: none;
+			padding: 0 0 0 2em;
+			margin: 0;
+
+			li {
+				position: relative;
+				margin: .1em 0;
+
+				&:last-child {
+					& > a:only-child::before {
+						background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'><line x1='8' x2='8' y1='0' y2='7.3' stroke='#{$color-secondary}' stroke-width='0.6'/><line x1='8' x2='18' y1='7' y2='7' stroke='#{$color-secondary}' stroke-width='0.6'/></svg>");
+					}
+				}
+
+				a {
+					position: relative;
+					padding-left: 2.5em;
+
+					&::after,
+					&::before {
+						content: '';
+						position: absolute;
+						top: .2em;
+						width: 1600px;
+						height: 1.4em;
+						text-align: right;
+						background: repeat-x center right;
+					}
+
+					&::before {
+						left: 0;
+						width: 2em;
+						background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'><line x1='8' x2='8' y1='1' y2='13' stroke='#{$color-secondary}' stroke-width='0.6'/><line x1='8' x2='18' y1='7' y2='7' stroke='#{$color-secondary}' stroke-width='0.6'/></svg>");
+
+					}
+
+					&::after {
+						right: 100%;
+						background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'><line x1='8' x2='8' y1='0' y2='5' stroke='#{$color-secondary}' stroke-width='0.6'/><line x1='8' x2='8' y1='9' y2='14' stroke='#{$color-secondary}' stroke-width='0.6'/></svg>");
+					}
+
+					&:hover {
+						&::after,
+						&::before {
+							filter: contrast(10);
+						}
+					}
+				}
+
+				&:hover {
+					background-color: rgba($color-gray-3, 0.5);
+				}
+			}
+		}
+	}
+
+	li {
+		list-style: none;
+		line-height: 1.4em;
+	}
+
+	a {
+		padding: .3em 1em .3em .5em;
+		display: block;
+		text-decoration: none;
+		color: $color-main;
+		background: $color-gray-1;
+
+		&:hover {
+			color: $color-white;
+			background-color: $color-main-lighten;
+		}
+
+		&:active {
+			color: $color-white;
+			background-color: $color-main-darken;
+		}
+	}
+}

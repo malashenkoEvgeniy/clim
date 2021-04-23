@@ -1,0 +1,53 @@
+.news-view {
+	display: block;
+
+	&__head {
+		display: block;
+		text-align: center;
+	}
+
+	&__body {
+		max-width: 960px;
+		margin: 0 auto;
+	}
+
+	&__title {
+		display: block;
+		margin: 0 0 rem(20);
+		color: #000;
+	}
+
+	&__teaser {
+		display: block;
+		max-width: 768px;
+		margin: 0 auto rem(15);
+		color: #666;
+	}
+
+	&__datetime {
+		display: block;
+		color: #666;
+		font-size: 14px;
+		font-weight: 300;
+	}
+
+	&__cover {
+		display: block;
+		width: 100%;
+		// height: rem(630);
+		margin: 0 auto;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: 50% 0;
+		}
+	}
+
+	&__content {
+		display: block;
+		margin: 40px 0;
+	}
+}

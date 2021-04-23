@@ -1,0 +1,59 @@
+.accordion-header {
+	$this: &;
+
+	font-size: rem(14);
+	font-weight: $font-weight-bold;
+	color: $color-black;
+	display: flex;
+	width: 100%;
+	padding: 6px;
+	margin: -6px -6px 6px;
+	cursor: pointer;
+	user-select: none;
+	outline: none;
+
+	&__name {
+		flex-grow: 1;
+	}
+
+	&__caret {
+		flex-shrink: 0;
+		width: rem(20);
+		height: rem(20);
+		border: 1px solid $color-gray-2;
+		box-sizing: border-box;
+		position: relative;
+		border-radius: 50%;
+		transform: translateZ(0);
+		transition: border-color $time-fast ease;
+
+		#{$this}:hover & { // sass-lint:disable-line force-element-nesting
+			border-color: $color-secondary;
+		}
+	}
+
+	&__icon {
+		@include absolute-center(rem(8));
+		transition: transform $time-fast ease;
+
+		#{$this}.is-open & { // sass-lint:disable-line force-element-nesting
+			transform: scaleY(-1);
+			// transform: rotate(180deg);
+		}
+	}
+}
+
+.accordion-body {
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	will-change: height;
+
+	& > :first-child {
+		margin-top: 0 !important; // sass-lint:disable-line no-important
+	}
+
+	& > :last-child {
+		margin-bottom: 0 !important; // sass-lint:disable-line no-important
+	}
+}

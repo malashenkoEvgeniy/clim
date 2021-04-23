@@ -1,0 +1,14 @@
+.vendor-code {
+	padding: rem(5) rem(12);
+	font-size: rem(14);
+	line-height: em(20, 14);
+	background: $color-gray-1;
+
+	&__title {
+		color: $color-gray-9;
+	}
+
+	&__code {
+		color: $color-gray-4;
+	}
+}

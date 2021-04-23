@@ -1,0 +1,13 @@
+@mixin visuallyhidden () {
+	// sass-lint:disable-all
+	position: absolute !important; // sass-lint:disable-line no-important
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px); // sass-lint:disable-line no-duplicate-properties
+	height: 1px !important; // sass-lint:disable-line no-important
+	width: 1px !important; // sass-lint:disable-line no-important
+	margin: -1px;
+	padding: 0 !important; // sass-lint:disable-line no-important
+	border: none !important; // sass-lint:disable-line no-important
+	overflow: hidden;
+	// sass-lint:enable-all
+}

@@ -1,0 +1,55 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.tabs-nav {
+	display: inline-flex;
+	// flex-wrap: wrap;
+	max-width: 100%;
+	overflow: auto;
+
+	&__button {
+		font-size: rem(13);
+		line-height: em(18);
+		flex-grow: 1;
+		padding: em(14) em(22);
+		font-weight: $font-weight-lighter;
+		color: $color-black;
+		position: relative;
+		user-select: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		white-space: nowrap;
+
+		@include media($screen-def) {
+			font-size: 1rem;
+			line-height: em(20);
+			padding: em(16) em(26);
+		}
+
+		&:not(.is-active) {
+			cursor: pointer;
+
+			&:hover {
+				background-color: rgba($color-black, .05);
+			}
+		}
+
+		&.is-active {
+			background-color: $color-white;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: rem(4);
+				background-color: $color-main;
+			}
+		}
+	}
+}

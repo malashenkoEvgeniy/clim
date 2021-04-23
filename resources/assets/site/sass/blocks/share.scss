@@ -1,0 +1,13 @@
+.share {
+	display: block;
+
+	&--vertical {
+		width: 54px;
+	}
+
+	&--sticky {
+		position: sticky;
+		top: rem(138px);
+		z-index: 1;
+	}
+}

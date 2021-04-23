@@ -1,0 +1,69 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.radio {
+	$this: &;
+
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	color: $color-gray-2;
+	user-select: none;
+	cursor: pointer;
+	visibility: hidden;
+
+	&__input {
+		visibility: visible;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+
+	&__icon {
+		visibility: visible;
+		align-self: flex-start;
+		display: inline-block;
+		width: rem(26);
+		height: rem(26);
+		position: relative;
+		border: 2px solid currentColor;
+		border-radius: 50%;
+		box-sizing: border-box;
+		transition: background-color $time-fast ease, border-color $time-fast ease;
+
+		&::after {
+			@include absolute-center(rem(12), rem(12), true);
+
+			content: '';
+			display: block;
+			border-radius: 50%;
+			background-color: #fff;
+			filter: drop-shadow(0, 2px, rgba($color-black, .3));
+			transform: scale(0);
+			transition: transform $time-fast ease;
+		}
+
+		:checked ~ & {
+			background-color: $color-main;
+			border-color: $color-main;
+
+			&::after {
+				transform: scale(1);
+			}
+		}
+	}
+
+	&__text {
+		visibility: visible;
+		padding-left: $gutter-sm;
+		line-height: normal;
+		color: $color-gray-6;
+		font-size: rem(14);
+	}
+}

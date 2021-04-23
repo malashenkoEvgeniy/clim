@@ -1,0 +1,89 @@
+// общие стили для всего сайта + хелперы
+// -------------------------------------------------
+
+@import "settings/all-settings";
+
+@import "essentials/elements";
+
+@import "helpers/helpers-color";
+@import "helpers/helpers-flex";
+@import "helpers/helpers-float";
+@import "helpers/helpers-grid";
+@import "helpers/helpers-gutters";
+@import "helpers/helpers-columns";
+@import "helpers/helpers-show-hide";
+@import "helpers/helpers-text";
+@import "helpers/helpers-position";
+@import "helpers/helpers-separator";
+
+$_generate-colors-map: (
+	white: $color-white,
+	gray1: $color-gray-1,
+	gray2: $color-gray-2,
+	gray3: $color-gray-3,
+	gray4: $color-gray-4,
+	gray5: $color-gray-5,
+	gray6: $color-gray-6,
+	gray7: $color-gray-7,
+	gray8: $color-gray-8,
+	gray9: $color-gray-9,
+	black: $color-black,
+	main: $color-main,
+	secondary: $color-secondary,
+);
+
+$_generate-screens-map: (
+	xxs: $screen-xxs,
+	xs: $screen-xs,
+	sm: $screen-sm,
+	ms: $screen-ms,
+	md: $screen-md,
+	def: $screen-def,
+	lg: $screen-lg,
+	xl: $screen-xl
+);
+
+$_generate-gutters-map: (
+	xxs: $gutter-xxs,
+	xs: $gutter-xs,
+	sm: $gutter-sm,
+	md: $gutter-md,
+	def: $gutter-def,
+	lg: $gutter-lg,
+	xl: $gutter-xl,
+	xxl: $gutter-xxl,
+);
+
+$_generate-separator-map: (
+	// xxs: $screen-xxs,
+	// xs: $screen-xs,
+	sm: $screen-sm,
+	// ms: $screen-ms,
+	// md: $screen-md,
+	def: $screen-def,
+	// lg: $screen-lg,
+	// xl: $screen-xl
+);
+
+@include helpers-color($_generate-colors-map);
+@include helpers-flex($_generate-screens-map);
+@include helpers-float($_generate-screens-map);
+@include helpers-grid(12, $_generate-screens-map);
+@include helpers-gutters($_generate-screens-map, $_generate-gutters-map);
+@include helpers-text($_generate-screens-map);
+@include helpers-show-hide($_generate-screens-map);
+@include helpers-columns(3, $_generate-screens-map, $_generate-gutters-map);
+@include helpers-position($_generate-screens-map);
+@include helpers-separator($_generate-separator-map);
+
+._visuallyhidden {
+	@include visuallyhidden();
+}
+
+._eventsnone {
+	pointer-events: none;
+}
+
+.is-search-view {
+	overflow: hidden;
+}

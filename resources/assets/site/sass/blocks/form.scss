@@ -1,0 +1,82 @@
+.form {
+	$this: &;
+
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	background-color: #fff;
+
+	form {
+		@include preloader();
+
+		display: block;
+		margin: 0;
+	}
+
+	.checker {
+		&__text {
+			margin-left: rem(16);
+			color: #000;
+			font-size: rem(13);
+			font-weight: 300;
+			position: relative;
+			padding: rem(3) 0;
+
+			a {
+				color: $color-main;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	.button {
+		&[type="submit"] {
+			font-size: 16px;
+			font-weight: 300;
+		}
+	}
+
+	&__heading {
+		position: relative;
+		z-index: 3;
+		display: block;
+		margin: 0 0 rem(40);
+		padding: 0;
+	}
+
+	&__body {
+		position: relative;
+		z-index: 2;
+		display: block;
+	}
+
+	&__footer {
+		position: relative;
+		z-index: 1;
+		display: block;
+		margin: rem(40) 0 0;
+		padding: 0;
+	}
+
+	&__decor {
+		display: block;
+		margin: 0;
+		padding: 0 0 rem(40);
+		text-align: center;
+	}
+
+	&__title {
+		display: block;
+		margin: 0;
+		color: $color-black;
+		font-size: rem(24);
+		font-weight: 700;
+		line-height: 1.15;
+		text-align: center;
+	}
+}

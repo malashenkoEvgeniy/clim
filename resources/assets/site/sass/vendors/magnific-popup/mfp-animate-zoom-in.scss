@@ -1,0 +1,60 @@
+////
+/// @group _vendors/
+////
+
+/// Description
+.mfp-animate-zoom-in {
+	$duration: .2s;
+	$duration-bg: .3s;
+
+	.mfp-iframe-scaler {
+		overflow: initial;
+
+		.mfp-close {
+			width: 44px;
+		}
+	}
+
+	.mfp-iframe-scaler iframe, // sass-lint:disable-line force-element-nesting
+	.mfp-figure,
+	.mfp-arrow,
+	.mfp-content > * { // sass-lint:disable-line no-universal-selectors
+		opacity: 0;
+		transform: scale(.8);
+		transition: transform $duration ease-in-out, opacity $duration ease-in-out;
+	}
+
+	&.mfp-ready {
+		.mfp-iframe-scaler iframe, // sass-lint:disable-line force-element-nesting
+		.mfp-figure,
+		.mfp-arrow,
+		.mfp-content > * { // sass-lint:disable-line no-universal-selectors
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	&.mfp-removing {
+		.mfp-iframe-scaler iframe, // sass-lint:disable-line force-element-nesting
+		.mfp-figure,
+		.mfp-arrow,
+		.mfp-content > * { // sass-lint:disable-line no-universal-selectors
+			opacity: 0;
+			transform: scale(.8);
+		}
+	}
+
+	&.mfp-bg {
+		background: #000;
+		opacity: 0;
+		transition: opacity $duration-bg ease-in-out;
+
+		&.mfp-ready {
+			opacity: .7;
+		}
+
+		&.mfp-removing {
+			opacity: 0;
+		}
+	}
+}

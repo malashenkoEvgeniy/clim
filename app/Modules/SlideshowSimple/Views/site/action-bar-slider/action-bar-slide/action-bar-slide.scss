@@ -1,0 +1,139 @@
+%action-bar-slide {
+	padding-top: percentage(474 / 1024);
+
+	@include media($screen-def) {
+		padding-top: percentage(500 / 1080);
+	}
+}
+
+.action-bar-slide {
+	position: relative;
+	background: center no-repeat / cover;
+
+	&__holder {
+		@extend %action-bar-slide;
+		position: relative;
+		margin: 0 auto;
+		max-width: 1040px;
+	}
+
+	&__slide {
+		position: absolute;
+		top: 1rem;
+		left: 0;
+		padding: 0 2rem;
+		bottom: 2rem;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include media(900px) {
+			top: 2rem;
+			padding: 2rem;
+			bottom: 4rem;
+		}
+	}
+
+	&__lines {
+		color: #fff;
+		text-transform: uppercase;
+		line-height: 1;
+		font-family: $font-family-accent;
+		font-size: rem(18);
+		font-weight: $font-weight-thin;
+		text-shadow: 0 2px 3px rgba(#000, .5);
+		position: relative;
+		z-index: 1;
+
+		@include media($screen-xs) {
+			font-size: rem(22);
+		}
+
+		@include media($screen-sm) {
+			font-size: rem(26);
+		}
+
+		@include media($screen-md) {
+			font-size: rem(32);
+		}
+
+		@include media(900px) {
+			:nth-child(1) {
+				font-size: rem(78);
+				font-family: $font-family-default;
+				font-weight: $font-weight-bolder;
+			}
+
+			:nth-child(2) {
+				font-size: rem(54);
+			}
+
+			:nth-child(3) {
+				font-size: rem(44);
+			}
+		}
+
+		@include media(900px, max) {
+			flex-shrink: 0;
+			white-space: nowrap;
+			text-align: center;
+			max-width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			> * { // sass-lint:disable-line no-universal-selectors
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			:nth-child(1) {
+				font-family: $font-family-default;
+				font-weight: $font-weight-bolder;
+			}
+		}
+	}
+
+	&__image {
+		display: flex;
+
+		@include media(900px, max) {
+			flex-grow: 1;
+
+			img {
+				width: 100%;
+				object-fit: contain;
+			}
+		}
+
+		@include media(900px) {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			max-width: 75%;
+			align-items: center;
+		}
+
+		.browserizr-is-desktop & {
+			@include media($screen-lg) {
+				max-width: 70%;
+			}
+
+			@include media($screen-xxl) {
+				max-width: 75%;
+			}
+		}
+	}
+
+	&__link {
+		position: relative;
+		z-index: 1;
+
+		@include media(900px, max) {
+			flex-shrink: 0;
+			text-align: center;
+			margin-bottom: .5em;
+		}
+	}
+}

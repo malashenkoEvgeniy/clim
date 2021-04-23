@@ -1,0 +1,76 @@
+.input-quantity {
+	$this: &;
+	$field-height: rem(40);
+
+	box-sizing: border-box;
+	position: relative;
+	display: block;
+	width: 100%;
+	max-width: rem(88);
+	border-bottom: 1px solid $color-main;
+	user-select: none;
+
+	@include media($screen-xs) {
+		max-width: rem(114);
+	}
+
+	* { // sass-lint:disable-line no-universal-selectors
+		box-sizing: inherit;
+	}
+
+	&__field {
+		display: block;
+		width: 100%;
+		height: $field-height;
+		padding: 0;
+		background-color: $color-white;
+		border: none;
+		color: #010101;
+		font-size: 12px;
+		font-weight: 300;
+		line-height: $field-height;
+		text-align: center;
+		outline: none;
+		transition: border-color $time-fast ease, box-shadow $time-fast ease, color $time-fast ease;
+		will-change: border-color, box-shadow;
+
+		@include media($screen-xs) {
+			font-size: 15px;
+		}
+
+		&::placeholder {
+			color: #b5b9c6;
+			font-size: 16px;
+			font-weight: 400;
+			transition: color $time-fast ease;
+			will-change: color;
+		}
+
+		&:focus {
+			&::placeholder {
+				color: #010101;
+			}
+		}
+	}
+
+	&__increase,
+	&__decrease {
+		display: block;
+		width: 22px;
+		height: $field-height;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: $field-height;
+		text-align: center;
+		cursor: pointer;
+
+		&:hover {
+			color: $color-secondary;
+			background: $color-gray-1;
+		}
+
+		&:active {
+			background: rgba($color-main, 0.3);
+		}
+	}
+}

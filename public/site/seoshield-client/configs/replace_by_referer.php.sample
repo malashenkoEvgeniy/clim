@@ -1,0 +1,193 @@
+<?php
+// замена по рефереру
+$GLOBALS['SEOSHIELD_CONFIG']['replace_by_referer']=array(
+	"google" => array(
+		"domains" => array(
+			"#google.*?#"
+		),
+		"traffic" => array(
+			"organic" => array(),
+			"paid" => array(
+				"#.*?utm_source.*?#",
+				"#.*?utm_medium.*?#",
+				"#.*?utm_campaign.*?#",
+				"#.*?utm_term.*?#",
+				"#.*?utm_content.*?#",
+				"#.*?gclid.*?#",
+			),
+		),	
+	),
+	"yandex" => array(
+		"domains" => array(
+			"#yandex.*?#"
+		),
+		"traffic" => array(
+			"organic" => array(),
+			"paid" => array(
+				"#.*?utm_source.*?#",
+				"#.*?utm_medium.*?#",
+				"#.*?utm_campaign.*?#",
+				"#.*?utm_term.*?#",
+				"#.*?utm_content.*?#",
+				"#.*?yclid.*?#",
+				"#.*?_openstat.*?#"
+			),
+		),	
+	),
+	"mail.ru" => array(
+		"domains" => array(
+			"#.*?mail.ru.*?#"
+		),
+		"traffic" => array(
+			"organic" => array(),
+			"paid" => array(
+				"#.*?utm_source.*?#",
+				"#.*?utm_medium.*?#",
+				"#.*?utm_campaign.*?#",
+				"#.*?utm_term.*?#",
+				"#.*?utm_content.*?#",
+				"#.*?yclid.*?#",
+			),
+		),	
+	),
+	"agregators" => array(
+		"domains" => array(
+			"#.*?.hotline.*?#",
+			"#.*?.price.*?#",
+			"#.*?.vseceni.*?#",
+			"#.*?.z-price.*?#",
+			"#.*?.sravni.*?#",
+			"#.*?.m1.*?#",
+			"#.*?.market.tut.*?#",
+			"#.*?.nadavi.*?#",
+			"#.*?.pc.pokupaj.*?#",
+		),
+	),
+	"social" => array(
+		"domains" => array(
+			"#.*?.vk.com.*?#",
+			"#.*?.facebook.com.*?#",
+			"#.*?.ok.ru.*?#",
+		),
+	),
+	"msn" => array(
+		"domains" => array(
+			"#.*?msn.com.*?#",
+		),
+	),
+	"yahoo" => array(
+		"domains" => array(
+			"#.*?yahoo.com.*?#",
+		),
+	),
+	"bing" => array(
+		"domains" => array(
+			"#.*?bing.com.*?#",
+		),
+	),
+	"aol" => array(
+		"domains" => array(
+			"#.*?aol.com.*?#",
+		),
+	),
+	"ask" => array(
+		"domains" => array(
+			"#.*?ask.com.*?#",
+		),
+	),
+	"altavista" => array(
+		"domains" => array(
+			"#.*?altavista.com.*?#",
+		),
+	),
+	"netscape" => array(
+		"domains" => array(
+			"#.*?search.netscape.com.*?#",
+		),
+	),
+	"cnn" => array(
+		"domains" => array(
+			"#.*?cnn.com\/SEARCH\/.*?#",
+		),
+	),	
+	"about" => array(
+		"domains" => array(
+			"#.*?about.com.*?#",
+		),
+	),		
+	"mamma" => array(
+		"domains" => array(
+			"#.*?mamma.com.*?#",
+		),
+	),		
+	"baidu" => array(
+		"domains" => array(
+			"#.*?baidu.com.*?#",
+		),
+	),		
+	"alice" => array(
+		"domains" => array(
+			"#.*?alice.com.*?#",
+		),
+	),		
+	"najdi" => array(
+		"domains" => array(
+			"#.*?najdi.org.mk.*?#",
+		),
+	),		
+	"seznam" => array(
+		"domains" => array(
+			"#.*?seznam.cz.*?#",
+		),
+	),		
+	"поиск" => array(
+		"domains" => array(
+			"#.*?search.com.*?#",
+		),
+	),	
+	"wirtulana polska" => array(
+		"domains" => array(
+			"#.*?wp.pl.*?#",
+		),
+	),			
+	"o*net" => array(
+		"domains" => array(
+			"#.*?online.onetcenter.org.*?#",
+		),
+	),			
+	"szukacz" => array(
+		"domains" => array(
+			"#.*?szukacz.pl.*?#",
+		),
+	),			
+	"terra" => array(
+		"domains" => array(
+			"#.*?terra.com.*?#",
+		),
+	),
+	"mynet" => array(
+		"domains" => array(
+			"#.*?mynet.com.*?#",
+		),
+	),	
+	"ekolay" => array(
+		"domains" => array(
+			"#.*?ekolay.com.*?#",
+		),
+	),	
+	"рамблер" => array(
+		"domains" => array(
+			"#.*?rambler.ru.*?#",
+		),
+	),	
+	"ukr.net" => array(
+		"domains" => array(
+			"#.*?search.ukr.net.*?#",
+		),
+	),
+	"meta.ua" => array(
+		"domains" => array(
+			"#.*?search.meta.ua.*?#",
+		),
+	),
+);

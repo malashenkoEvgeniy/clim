@@ -1,0 +1,27 @@
+.item-card-preview {
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	position: absolute;
+	outline: none;
+
+	&__cell {
+		@include absolute-cube(100%);
+
+		&:hover {
+			&::after {
+				@include absolute-cube(100%);
+				content: '';
+				background-color: $custom-color-image-hover;
+			}
+		}
+	}
+
+	&__image {
+		margin: auto;
+		max-height: 100%;
+		align-self: center;
+	}
+}

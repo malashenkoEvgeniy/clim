@@ -1,0 +1,43 @@
+////
+/// @group _settings/
+////
+
+/// @access private
+/// @param {String} $mod [""] - название брейкпоинта с разделителем
+/// @requires {mixin} clearfix
+@mixin _helpers-float-generate($mod: "") {
+	// sass-lint:disable no-important
+	._#{$mod}clearfix {
+		@include clearfix();
+	}
+
+	._#{$mod}clear {
+		clear: both !important;
+	}
+
+	._#{$mod}ovh {
+		overflow: hidden !important;
+	}
+
+	._#{$mod}fll {
+		float: left !important;
+	}
+
+	._#{$mod}flr {
+		float: right !important;
+	}
+	// sass-lint:enable no-important
+}
+
+/// Хелперы флоатов
+/// @requires {mixin} media
+/// @requires {mixin} _helpers-float-generate
+/// @param {Map} $screens [()] - карта брейкпоинтов, для которых нужно сделать хелперы
+@mixin helpers-float ($screens: ()) {
+	@include _helpers-float-generate();
+	@each $screen, $width in $screens {
+		@include media($width) {
+			@include _helpers-float-generate($screen + '-');
+		}
+	}
+}

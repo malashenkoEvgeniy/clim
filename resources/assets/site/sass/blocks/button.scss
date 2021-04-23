@@ -1,0 +1,546 @@
+.button {
+	$this: &;
+
+	display: inline-block;
+	vertical-align: top;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid transparent;
+	outline: none;
+	box-sizing: border-box;
+	user-select: none;
+	position: relative;
+
+	&--disabled,
+	&[disabled],
+	&.is-disabled {
+		cursor: not-allowed;
+		opacity: .75;
+		filter: grayscale(1);
+	}
+
+	&--active,
+	&.is-active {
+		cursor: default;
+	}
+
+	&__load {
+		position: absolute;
+		background: $color-main;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		visibility: hidden;
+		opacity: 0;
+
+		.is-pending & {
+			visibility: visible;
+			opacity: 1;
+
+			i {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				width: 6px;
+				background: #fff;
+				animation: btn-load 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+
+				&:nth-child(1) {
+					margin-left: -16px;
+					animation-delay: -0.24s;
+				}
+
+				&:nth-child(2) {
+					margin-left: -3px;
+					animation-delay: -0.12s;
+				}
+
+				&:nth-child(3) {
+					margin-left: 10px;
+					animation-delay: 0s;
+				}
+			}
+		}
+	}
+
+	&__body {
+		display: inline-flex;
+		vertical-align: middle;
+		align-items: center;
+
+		.is-pending &[animation-button] {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+
+		&--before {
+			order: 1;
+		}
+
+		&--after {
+			order: 3;
+		}
+
+		&--in-active {
+			display: block;
+
+			#{$this}.is-active & { // sass-lint:disable-line force-element-nesting
+				display: none;
+			}
+		}
+
+		&--is-active {
+			display: none;
+
+			#{$this}.is-active & { // sass-lint:disable-line force-element-nesting
+				display: block;
+			}
+		}
+
+		.in-cart & {
+			color: transparent;
+		}
+	}
+
+	&__text {
+		order: 2;
+
+		&--double {
+			font-size: rem(9);
+			line-height: em(10, 9);
+		}
+
+		&--in-active {
+			display: block;
+
+			#{$this}.is-active & { // sass-lint:disable-line force-element-nesting
+				display: none;
+			}
+		}
+
+		&--is-active {
+			display: none;
+
+			#{$this}.is-active & { // sass-lint:disable-line force-element-nesting
+				display: block;
+			}
+		}
+	}
+
+	// themes
+
+	&--theme-default {
+		background-color: transparent;
+		color: $color-gray-7;
+		fill: currentColor;
+		border-color: $color-gray-7;
+		transition: color $time-now linear, border-color $time-now linear, background-color $time-now linear;
+	}
+
+	&--theme-default-invert {
+		background-color: transparent;
+		color: $color-white;
+		fill: currentColor;
+		border-color: $color-white;
+		transition: color $time-now linear, border-color $time-now linear, background-color $time-now linear;
+	}
+
+	&--theme-default,
+	&--theme-default-invert {
+		&:hover {
+			color: #fff;
+			border-color: transparent;
+			background-color: $color-main;
+		}
+
+		&:active {
+			color: rgba(#fff, .75);
+			border-color: transparent;
+			background-color: $color-main-darken;
+			transition-duration: 0s, 0s, 0s;
+		}
+	}
+
+	&--theme-item-buy {
+		background-color: transparent;
+		color: $color-black;
+		fill: currentColor;
+		border-color: $color-black;
+		transition: color $time-now linear, border-color $time-now linear, background-color $time-now linear;
+
+		.button {
+			&__text {
+				white-space: nowrap;
+			}
+		}
+
+		.item-card:hover & {
+			color: #fff;
+			border-color: transparent;
+			background-color: $color-main;
+
+			&:hover {
+				background-color: $color-main-darken;
+				text-shadow: $shadow-text, $shadow-text;
+			}
+
+			&:active {
+				color: rgba(#fff, .75);
+				border-color: transparent;
+				background-color: $color-secondary-darken;
+				transition-duration: 0s, 0s, 0s;
+			}
+		}
+
+		&.in-cart {
+			color: #fff;
+			border-color: transparent;
+			background-color: $color-main-darken;
+			text-shadow: $shadow-text, $shadow-text;
+		}
+	}
+
+	&--theme-main {
+		color: #fff;
+		fill: #fff;
+		background-color: $color-main;
+		transition: background-color $time-now linear;
+
+		&:hover {
+			background-color: $color-main-lighten;
+		}
+
+		&:active {
+			color: rgba(#fff, .75);
+			background-color: $color-main-darken;
+			transition-duration: 0s;
+		}
+	}
+
+	&--theme-reset {
+		color: $color-gray-5;
+		fill: $color-gray-5;
+		border-color: $color-gray-5;
+		transition: background-color $time-now linear;
+
+		&:hover {
+			background-color: $color-gray-5;
+			border-color: $color-gray-5;
+			color: $color-white;
+			fill: $color-white;
+		}
+
+		&:active {
+			color: rgba(#fff, .75);
+			background-color: $color-danger;
+			transition-duration: 0s;
+		}
+	}
+
+	&--theme-white {
+		color: $color-main;
+		fill: $color-main;
+		background-color: $color-white;
+		transition: background-color $time-now linear;
+
+		&:hover {
+			background-color: $color-gray-1;
+		}
+
+		&:active {
+			color: $color-main-darken;
+			fill: $color-main-darken;
+			background-color: $color-gray-3;
+			transition-duration: 0s;
+		}
+	}
+
+	&--theme-slide-arrows {
+		color: $color-gray-5;
+		fill: $color-gray-5;
+		background-color: transparent;
+		transition: background-color $time-now linear;
+
+		&:hover {
+			background-color: $color-main;
+			color: $color-white;
+			fill: $color-white;
+		}
+
+		&:active {
+			color: $color-main-darken;
+			fill: $color-main-darken;
+			background-color: $color-gray-3;
+			transition-duration: 0s;
+		}
+	}
+
+	&--theme-item-action {
+		fill: #fff;
+		color: $custom-color-additional;
+		background-color: $custom-color-additional;
+		transition: background-color $time-now linear;
+
+		&.is-active {
+			color: $color-secondary-darken;
+			background-color: $color-secondary-darken;
+			cursor: pointer;
+
+			&:hover {
+				color: $color-secondary-darken;
+				// background-color: rgba($color-secondary-darken, 0.15);
+			}
+		}
+
+		&:hover {
+			fill: $color-secondary-darken;
+			border-color: $color-secondary-darken;
+			color: #fff;
+			background-color: #fff;
+		}
+
+		&:active {
+			// sass-lint:disable no-important
+			color: $color-danger-darken !important;
+			background-color: $color-danger-darken !important;
+			transition-duration: 0s;
+			// sass-lint:enable no-important
+		}
+	}
+
+	&--theme-unavaliable {
+		color: $color-black;
+		fill: $color-gray-5;
+		border-color: $color-gray-5;
+		cursor: default;
+	}
+
+	// sizes
+	&--size-small {
+		text-transform: uppercase;
+		font-size: rem(12);
+		padding: rem(6) rem(16);
+		line-height: rem(20);
+		min-height: rem(34);
+
+		.button {
+			&__icon {
+				width: rem(14);
+				height: rem(14);
+
+				&--before ~ .button__text {
+					margin-left: rem(6);
+				}
+
+				&--after ~ .button__text {
+					margin-right: rem(6);
+				}
+
+				&:only-child {
+					margin: 0 rem(-7);
+				}
+			}
+		}
+	}
+
+	&--size-collapse-normal {
+		text-transform: uppercase;
+		font-size: rem(12);
+		padding: rem(10) rem(20);
+		line-height: rem(20);
+		min-height: rem(42);
+
+		@include media($screen-def) {
+			padding-left: rem(6);
+			padding-right: rem(6);
+		}
+
+		.button {
+			&__icon {
+				width: rem(20);
+				height: rem(20);
+
+				&--before ~ .button__text {
+					margin-left: rem(10);
+				}
+
+				&--after ~ .button__text {
+					margin-right: rem(10);
+				}
+
+				&:only-child {
+					margin: 0 rem(-10);
+				}
+
+				@include media($screen-def, max) {
+					margin: 0 rem(-10);
+				}
+			}
+
+			&__text {
+				@include media($screen-def, max) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&--size-normal {
+		text-transform: uppercase;
+		font-size: rem(12);
+		padding: rem(10) rem(20);
+		line-height: rem(20);
+		min-height: rem(42);
+
+		.button {
+			&__icon {
+				width: rem(20);
+				height: rem(20);
+
+				&--before ~ .button__text {
+					margin-left: rem(10);
+				}
+
+				&--after ~ .button__text {
+					margin-right: rem(10);
+				}
+
+				&:only-child {
+					margin: 0 rem(-10);
+				}
+			}
+		}
+	}
+
+	&--size-large {
+		text-transform: uppercase;
+		font-size: 15px;
+		padding: rem(16) rem(30);
+		line-height: rem(20);
+		min-height: rem(52);
+
+		.button {
+			&__icon {
+				width: rem(20);
+				height: rem(20);
+
+				&--before ~ .button__text {
+					margin-left: rem(10);
+				}
+
+				&--after ~ .button__text {
+					margin-right: rem(10);
+				}
+
+				&:only-child {
+					margin: 0 rem(-10);
+				}
+			}
+		}
+	}
+
+	// width
+
+	&--width-lg {
+		min-width: 230px;
+	}
+
+	&--width-full {
+		display: block;
+		width: 100%;
+	}
+
+	// types
+
+	&--air {
+		padding: 0;
+		background-color: rgba($color-white, .001);
+		color: $color-secondary;
+		fill: #ccc;
+		font-size: rem(14);
+		font-weight: 400;
+		text-decoration: underline;
+
+		.button {
+			&__icon {
+				width: 15px;
+				height: 15px;
+				transition: fill $time-now ease;
+
+				&--before ~ .button__text {
+					margin-left: 9px;
+				}
+
+				&--after ~ .button__text {
+					margin-right: 9px;
+				}
+
+				&:only-child {
+					margin: 0 rem(-10);
+				}
+			}
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			.button {
+				&__icon {
+					// color: inherit need for compare icon
+					color: inherit !important; // sass-lint:disable-line no-important
+					fill: currentColor;
+				}
+			}
+		}
+
+		&.in-cart {
+			padding: 8px 18px;
+			border-radius: 26px;
+			background-color: $color-main !important; // sass-lint:disable-line no-important
+			color: #fff !important; // sass-lint:disable-line no-important
+			fill: #fff !important; // sass-lint:disable-line no-important
+		}
+	}
+
+	&--remove {
+		padding: 0;
+		background-color: rgba($color-white, .001);
+		fill: #ccc;
+
+		.button {
+			&__icon {
+				width: 20px;
+				height: 20px;
+				transition: fill $time-now ease;
+			}
+		}
+
+		&:hover {
+			.button {
+				&__icon {
+					fill: $color-danger;
+				}
+			}
+		}
+	}
+
+}
+
+@keyframes btn-load {
+	0% {
+		top: 10%;
+		height: 80%;
+	}
+
+	50%,
+	100% {
+		top: 30%;
+		height: 40%;
+	}
+}

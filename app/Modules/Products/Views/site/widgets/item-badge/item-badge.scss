@@ -1,0 +1,47 @@
+.item-badge {
+	display: flex;
+	align-items: center;
+	padding: rem(6) rem(8);
+	max-width: 100%;
+	box-sizing: border-box;
+	position: relative;
+	margin-bottom: rem(8);
+	background-color: currentColor;
+
+	&::after,
+	&::before {
+		position: absolute;
+		left: 100%;
+		height: 50%;
+		width: 0.4rem;
+		content: '';
+	}
+
+	&::after {
+		top: 0;
+		background: linear-gradient(to bottom right, currentColor 45%, transparent 55%);
+	}
+
+	&::before {
+		bottom: 0;
+		background: linear-gradient(to bottom left, transparent 45%, currentColor 55%);
+	}
+
+	&__text {
+		width: 100%;
+		text-transform: uppercase;
+		font-size: rem(9);
+		text-align: center;
+		font-weight: $font-weight-bold;
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		color: $color-white;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+		padding-right: 2px;
+
+		@include media($screen-md) {
+			font-size: rem(11);
+		}
+	}
+}

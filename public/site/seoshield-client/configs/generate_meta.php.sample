@@ -1,0 +1,18 @@
+<?php
+// <title> страницы
+// $GLOBALS['SEOSHIELD_CONFIG']['page_title']="";
+
+// <meta[type=description]> станицы
+// $GLOBALS['SEOSHIELD_CONFIG']['page_meta_description']="";
+
+// <meta[type=keywords]> станицы
+// $GLOBALS['SEOSHIELD_CONFIG']['page_meta_keywords']="";
+
+// <h1> станицы
+// $GLOBALS['SEOSHIELD_CONFIG']['page_h1']="";
+
+// данные переменные могут принимать 3 значения:
+// пустая строка - если необходимо очистить тег
+// строка - если необходимо заменить содержимое тега
+// false - если необходимо удалить тег
+// пс.если мета тег надо оставить без изменений, необходимо удалить переменную

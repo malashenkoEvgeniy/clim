@@ -1,0 +1,16 @@
+// .wishlist {}
+
+.wishlist-sticky-head {
+	position: sticky;
+	top: -10px;
+	z-index: 89;
+	background-color: #fff;
+
+	@include media($screen-def) {
+		top: 40px;
+	}
+}
+
+[data-wishlist-toggle] {
+	@include button-pulse();
+}

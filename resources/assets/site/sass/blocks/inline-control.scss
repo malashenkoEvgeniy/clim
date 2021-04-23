@@ -1,0 +1,25 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.inline-control {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	color: $color-gray-6;
+	font-size: rem(12);
+	line-height: rem(20);
+
+	@include media($screen-xs) {
+		font-size: rem(14);
+	}
+
+	&__label {
+		margin: $gutter-sm $gutter-sm $gutter-sm 0;
+
+		@include media($screen-ms) {
+			margin-right: $gutter-def;
+		}
+	}
+}

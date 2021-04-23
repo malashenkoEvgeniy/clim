@@ -1,0 +1,34 @@
+////
+/// @group blocks/layouts/
+////
+
+/// Description
+.container {
+	position: relative;
+	margin: 0 auto;
+	max-width: $screen-xxl;
+	padding-left: $gutter-sm;
+	padding-right: $gutter-sm;
+
+	@include media($screen-xs) {
+		padding-left: $gutter-md;
+		padding-right: $gutter-md;
+	}
+
+	& & {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&--lg {
+		max-width: $screen-lg;
+	}
+
+	&--def {
+		max-width: $screen-def;
+	}
+
+	&--md {
+		max-width: $screen-md;
+	}
+}

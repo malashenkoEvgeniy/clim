@@ -1,0 +1,17 @@
+.header-over {
+	@include clearfix();
+
+	&__right {
+		position: relative;
+		z-index: 2;
+		float: right;
+		margin-left: $gutter-def;
+		display: flex;
+		padding: $gutter-sm 0;
+	}
+
+	&__left {
+		// overflow: hidden;
+		padding: $gutter-sm 0;
+	}
+}

@@ -1,0 +1,12 @@
+.product-slide {
+	display: block;
+	text-align: center;
+	outline: none;
+
+	&__image {
+		object-fit: contain;
+		margin-left: auto;
+		margin-right: auto;
+		max-height: rem(450);
+	}
+}

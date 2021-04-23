@@ -1,0 +1,44 @@
+.tree {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	&__item {
+		display: flex;
+		align-items: center;
+		font-size: rem(13);
+
+		&--1 {
+			font-weight: $font-weight-bolder;
+			font-size: rem(15);
+		}
+	}
+
+	&__level {
+		& & {
+			padding-left: rem(10);
+			margin-top: rem(14);
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		align-self: flex-start;
+		width: rem(12);
+		height: rem(12);
+		fill: $color-main;
+		margin-right: 3px;
+	}
+
+	&__link {
+		color: $color-black;
+		text-decoration: none;
+
+		&[href] {
+			&:hover {
+				color: $color-main;
+				text-decoration: underline;
+			}
+		}
+	}
+}

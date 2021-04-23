@@ -1,0 +1,17 @@
+.item-card-price {
+	margin-bottom: .75rem;
+
+	&__old-value {
+		color: $custom-color-additional;
+		font-size: rem(14);
+		line-height: 1;
+		margin-bottom: 2px;
+	}
+
+	&__value {
+		color: $color-black;
+		font-size: rem(20);
+		font-weight: $font-weight-bolder;
+		line-height: 1;
+	}
+}

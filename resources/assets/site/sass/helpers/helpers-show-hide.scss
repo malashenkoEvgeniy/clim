@@ -1,0 +1,70 @@
+////
+/// @group _settings/
+////
+
+/// Хелперы видимости элементов
+/// @requires {mixin} media
+/// @param {Map} $screens [()] - карта брейкпоинтов, для которых нужно сделать хелперы
+@mixin helpers-show-hide ($screens: ()) {
+	%hide {
+		display: none !important; // sass-lint:disable-line no-important
+	}
+
+	._hide {
+		@extend %hide;
+	}
+
+	._hide-last {
+		&:last-child {
+			@extend %hide;
+		}
+	}
+
+	._ghost {
+		pointer-events: none;
+	}
+
+	._hide-mobile {
+		.browserizr-is-mobile & {
+			@extend %hide;
+		}
+	}
+
+	._show-mobile {
+		.browserizr-is-not-mobile & {
+			@extend %hide;
+		}
+	}
+
+	._initial {
+		display: initial;
+	}
+
+	@media print {
+		._no-print {
+			display: none !important; // sass-lint:disable-line no-important
+		}
+	}
+
+	@each $screen, $width in $screens {
+		$mod: $screen + '-';
+
+		@include media($width) {
+			._#{$mod}hide,
+			.browserizr-is-not-mobile ._#{$mod}show-mobile { // sass-lint:disable-line force-element-nesting
+				display: none !important; // sass-lint:disable-line no-important
+			}
+
+			._#{$mod}initial {
+				display: initial;
+			}
+		}
+
+		@include media($width, max) {
+			._#{$mod}show,
+			.browserizr-is-mobile ._#{$mod}hide-mobile { // sass-lint:disable-line force-element-nesting
+				display: none !important; // sass-lint:disable-line no-important
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+.slogan {
+	font-size: rem(10);
+	line-height: rem(14);
+	color: $color-black;
+	font-style: italic;
+
+	@include media($screen-xxs) {
+		font-size: rem(12);
+		line-height: rem(16);
+	}
+
+	@include media($screen-sm) {
+		font-size: rem(15);
+		line-height: rem(18);
+	}
+
+	@include media($screen-def) {
+		@include media($screen-xxl, max) {
+			font-size: rem(14);
+			line-height: rem(18);
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+
+	strong,
+	b {
+		font-weight: $font-weight-bold;
+	}
+}

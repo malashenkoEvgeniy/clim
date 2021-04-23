@@ -1,0 +1,87 @@
+////
+/// @group _settings/
+////
+
+/// @access private
+@mixin _helpers-gutters-sides($name, $prop, $suffix, $value, $mod: "") {
+	$start: #{$mod + $name};
+	$end: #{'-' + $suffix};
+
+	$sides: (
+		t: top,
+		r: right,
+		b: bottom,
+		l: left
+	);
+
+	$axis: (
+		tb: (top, bottom),
+		lr: (left, right),
+	);
+
+	// sass-lint:disable no-important
+	._#{$start + $end} {
+		#{$prop}: $value !important;
+	}
+	@each $side, $val in $sides {
+		._#{$start + $side + $end} {
+			#{$prop}#{-#{$val}}: $value !important;
+		}
+	}
+	@each $side, $val in $axis {
+		._#{$start + $side + $end} {
+			#{$prop}#{-#{nth($val, 1)}}: $value !important;
+			#{$prop}#{-#{nth($val, 2)}}: $value !important;
+		}
+	}
+	// sass-lint:enable no-important
+}
+
+/// Хелперы отступов
+/// @requires {mixin} media
+/// @requires {mixin} _helpers-gutters-sides
+/// @param {Map} $screens [()] - карта брейкпоинтов, для которых нужно сделать хелперы
+/// @param {Map} $gutters [()] - карта отступов, для которых нужно сделать хелперы
+/// @param {Bool} $negative-margins [true] - карта отступов, для которых нужно сделать хелперы
+@mixin helpers-gutters ($screens: (), $gutters: (), $negative-margins: true) {
+	$props: (
+		m: margin,
+		p: padding
+	);
+
+	@each $name, $prop in $props {
+		@include _helpers-gutters-sides($name, $prop, none, 0);
+		@each $screen, $width in $screens {
+			@include media($width) {
+				@include _helpers-gutters-sides($name, $prop, none, 0, $screen + '-');
+			}
+		}
+
+		@if ($name == m) {
+			@include _helpers-gutters-sides($name, $prop, auto, auto);
+			@each $screen, $width in $screens {
+				@include media($width) {
+					@include _helpers-gutters-sides($name, $prop, auto, auto, $screen + '-');
+				}
+			}
+		}
+
+		@each $gutter, $value in $gutters {
+			@include _helpers-gutters-sides($name, $prop, $gutter, $value);
+
+			@if ($negative-margins AND $value != 0 AND $name == m) {
+				@include _helpers-gutters-sides(n + $name, $prop, $gutter, -$value);
+			}
+
+			@each $screen, $width in $screens {
+				@include media($width) {
+					@include _helpers-gutters-sides($name, $prop, $gutter, $value, $screen + '-');
+
+					@if ($negative-margins AND $value != 0 AND $name == m) {
+						@include _helpers-gutters-sides(n + $name, $prop, $gutter, -$value, $screen + '-');
+					}
+				}
+			}
+		}
+	}
+}

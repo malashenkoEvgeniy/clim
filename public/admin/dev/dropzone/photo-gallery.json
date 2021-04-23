@@ -1,0 +1,6 @@
+{
+  "url":"/admin/ajax/gallery-upload-photos",
+  "urlUpload":"/admin/ajax/gallery-get-photos",
+  "urlDelete":"/admin/ajax/gallery-delete-photo",
+  "idNumber": null
+}

@@ -1,0 +1,88 @@
+.packages {
+	position: relative;
+
+	&__link {
+		display: block;
+		text-decoration: none;
+		color: $color-gray-8;
+		font-size: rem(13);
+		line-height: rem(18);
+		border: 1px solid $color-gray-4;
+		padding: rem(5) rem(10);
+		user-select: none;
+		cursor: pointer;
+		position: relative;
+
+		&--big {
+			font-size: rem(13);
+			line-height: rem(18);
+			padding: rem(5) rem(10);
+
+			&::after {
+				opacity: 0;
+				top: 100%;
+				left: 50%;
+				border-style: solid;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+				border-color: transparent;
+				border-top-color: $color-secondary;
+				border-width: 8px;
+				margin-left: -8px;
+			}
+
+
+			&:hover {
+				.browserizr-is-desktop & + .packages__dropdown {
+					opacity: 1;
+					visibility: visible;
+				}
+
+				.browserizr-is-desktop &::after {
+					opacity: 1;
+				}
+			}
+		}
+
+		&--small {
+			font-size: rem(11);
+			line-height: rem(16);
+			padding: rem(3) rem(7);
+		}
+
+		&:hover {
+			border-color: $color-secondary;
+			color: $color-secondary;
+		}
+
+		&.is-active {
+			border-color: $color-secondary;
+			background-color: $color-secondary;
+			color: $color-white;
+			font-weight: 700;
+			pointer-events: none;
+		}
+	}
+
+	&__dropdown {
+		position: absolute;
+		left: -($gutter-xs);
+		margin-top: $gutter-sm;
+		visibility: hidden;
+		opacity: 0;
+		white-space: nowrap;
+		background: $color-white;
+		padding: $gutter-sm $gutter-sm $gutter-xs;
+		border: 1px solid $color-secondary;
+		min-width: 100%;
+		z-index: 9;
+		transition-property: visibility, opacity;
+		transition-duration: 0.2s, 0.2s;
+		transition-timing-function: ease-in-out;
+		box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+		transform: translate(1px, -1px);
+	}
+}

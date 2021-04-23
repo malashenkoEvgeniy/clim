@@ -1,0 +1,30 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.schedule-work {
+	font-size: 11px;
+	color: $custom-color-text-muted;
+	padding-left: rem(30);
+	position: relative;
+
+	&__icon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: rem(24);
+		height: rem(24);
+		fill: $color-main;
+	}
+
+	&__descr {
+		padding-bottom: rem(5);
+	}
+
+	&__times {
+		font-size: 12px;
+		color: $color-black;
+		white-space: pre-wrap;
+	}
+}

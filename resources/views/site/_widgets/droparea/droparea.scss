@@ -1,0 +1,128 @@
+.droparea {
+	$this: &;
+
+	box-sizing: border-box;
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: 80px;
+	padding: rem(22) rem(26);
+	border: 1px dashed #ebebeb;
+	background-color: #fafafa;
+
+	&--small {
+		min-height: rem(50);
+		padding: rem(10) rem(20);
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		display: block;
+		margin-right: 18px;
+
+		.svg-icon {
+			width: 25px;
+			height: 27px;
+			fill: $color-main;
+		}
+	}
+
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		z-index: 1;
+		cursor: pointer;
+		font-size: 0;
+	}
+
+	&__message,
+	&__file-info {
+		flex-grow: 1;
+		display: block;
+		max-width: 230px;
+		color: rgba($color-black, .5);
+		font-size: 13px;
+		font-weight: 300;
+		line-height: 1.3;
+
+		& > span {
+			text-decoration: underline;
+		}
+	}
+
+	&__message {
+		& > span {
+			white-space: nowrap;
+		}
+	}
+
+	&__file-info {
+		display: none;
+		font-size: 15px;
+	}
+
+	&__clear {
+		position: absolute;
+		bottom: 2px;
+		right: 5px;
+		z-index: 2;
+		display: none;
+		color: rgba($color-black, .5);
+		font-size: 12px;
+		cursor: pointer;
+		letter-spacing: 0.5px;
+
+		&:hover {
+			color: $color-danger;
+			text-decoration: underline;
+		}
+	}
+
+	&.has-file {
+		#{$this}__message {
+			display: none;
+		}
+
+		#{$this}__file-info {
+			display: block;
+		}
+
+		#{$this}__clear {
+			display: block;
+		}
+	}
+
+	&.has-success,
+	&.has-error {
+		background-image: none;
+	}
+
+	&.has-success {
+		border-color: #46B884;
+		background-color: rgba(#46B884, .1);
+
+		#{$this}__icon {
+			.svg-icon {
+				fill: $color-main;
+			}
+		}
+	}
+
+	&.has-error {
+		border-color: $color-danger;
+		background-color: rgba($color-danger, .1);
+
+		#{$this}__icon {
+			.svg-icon {
+				fill: $color-danger;
+			}
+		}
+	}
+}

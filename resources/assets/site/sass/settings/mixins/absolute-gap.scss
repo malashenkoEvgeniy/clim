@@ -1,0 +1,15 @@
+////
+/// @group _settings/
+////
+
+/// @param {Number} $size - отступ
+/// @param {Bool} $set-absolute [true] - добавить абсолютное позиционирование
+@mixin absolute-gap($size, $set-absolute: true) {
+	@if ($set-absolute) {
+		position: absolute;
+	}
+	top: $size;
+	right: $size;
+	left: $size;
+	bottom: $size;
+}

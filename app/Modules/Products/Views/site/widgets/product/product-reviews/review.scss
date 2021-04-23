@@ -1,0 +1,87 @@
+.review {
+	margin-bottom: rem(16);
+	position: relative;
+
+	& + & {
+		padding-top: rem(16);
+		border-top: 1px solid $color-gray-1;
+	}
+
+	& & {
+		margin-top: rem(32);
+		background-color: $color-gray-1;
+		padding: rem(15) rem(10) rem(15) rem(24);
+		margin-left: rem(24);
+
+		&::after {
+			bottom: 100%;
+			left: 0;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border: rem(8) solid rgba($color-gray-1, 0);
+			border-bottom-color: $color-gray-1;
+			border-left-color: $color-gray-1;
+		}
+	}
+
+	&__user {
+		font-weight: $font-weight-bold;
+		color: $color-black;
+	}
+
+	&__char {
+		display: block;
+		width: 3rem;
+		height: 3rem;
+		text-align: center;
+		line-height: 3rem;
+		font-weight: 700;
+		border-radius: 50%;
+		margin-right: 1rem;
+		background-color: $color-main;
+		color: $color-white;
+	}
+
+	&__head {
+		padding-top: rem(6);
+		overflow: hidden;
+		position: relative;
+	}
+
+	&__time {
+		display: inline-block;
+		vertical-align: top;
+		min-width: rem(150);
+		font-weight: 400;
+		font-style: normal;
+		font-size: rem(11);
+		font-family: sans-serif;
+		padding: rem(4) 0 rem(8);
+		margin-bottom: rem(10);
+		border-bottom: 1px solid $color-main;
+		color: $color-gray-4;
+	}
+
+	&__content {
+		padding: .5rem 0 0 1.5rem;
+		position: relative;
+		font-size: rem(14);
+		line-height: em(20, 14);
+		color: $color-gray-7;
+
+		a {
+			color: $color-main;
+
+			&:hover {
+				color: $color-secondary;
+			}
+		}
+	}
+}
+
+.review-container {
+	@include preloader();
+}

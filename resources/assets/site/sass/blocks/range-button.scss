@@ -1,0 +1,22 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.range-button {
+	display: block;
+	height: rem(40);
+	line-height: rem(40);
+	text-align: center;
+	border-width: 0;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: $color-main;
+	color: $color-white;
+	font-size: rem(14);
+	cursor: pointer;
+
+	&:hover {
+		background-color: $color-main-lighten;
+	}
+}

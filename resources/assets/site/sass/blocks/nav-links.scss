@@ -1,0 +1,33 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.nav-links {
+	padding: 0;
+	list-style: none;
+
+	&--columns {
+		column-count: 2;
+		column-gap: 2rem;
+	}
+
+	&__item {
+		margin-bottom: $gutter-xs;
+	}
+
+	&__link {
+		text-decoration: none;
+		color: $color-black;
+		font-size: 13px;
+
+		&:hover {
+			color: $color-main;
+			text-decoration: underline;
+		}
+
+		&:active {
+			color: $color-main-darken;
+		}
+	}
+}

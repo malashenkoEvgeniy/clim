@@ -1,0 +1,60 @@
+.compare-group-card {
+	display: flex;
+	background: $color-white;
+	padding: rem(15) rem(10);
+	height: 100%;
+	box-sizing: border-box;
+
+	&__body {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-grow: 1;
+	}
+
+	&__preview {
+		display: flex;
+		width: rem(60);
+		height: rem(60);
+		flex-shrink: 0;
+		margin-right: rem(10);
+
+		@include media($screen-ms) {
+			width: rem(100);
+			height: rem(100);
+		}
+
+		img {
+			max-height: 100%;
+			margin: auto;
+		}
+	}
+
+	&__title {
+		word-break: break-word;
+		margin-bottom: rem(10);
+		font-size: rem(14);
+	}
+
+	&__remove {
+		flex-shrink: 0;
+		width: 22px;
+		padding-left: rem(10);
+	}
+
+	&__price-old {
+		color: $custom-color-additional;
+		font-size: rem(14);
+		line-height: 1;
+		margin-bottom: 2px;
+		text-decoration: line-through;
+	}
+
+	&__price-current {
+		color: $color-black;
+		font-size: rem(20);
+		font-weight: $font-weight-bolder;
+		line-height: 1;
+	}
+}

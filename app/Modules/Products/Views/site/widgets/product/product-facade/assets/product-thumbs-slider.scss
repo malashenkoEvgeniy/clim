@@ -1,0 +1,40 @@
+.product-thumbs-slider {
+	position: relative;
+
+	@include media($screen-def) {
+		padding: 0 rem(42);
+	}
+
+	&__arrows {
+		@include absolute-cube(100%);
+		visibility: hidden;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+.product-thumbs-slide {
+	text-align: center;
+	width: 58px;
+	height: 58px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid $color-gray-2;
+	cursor: pointer;
+	padding: 1px;
+
+	&:hover {
+		border-color: $color-main;
+	}
+
+	.slick-current & {
+		border-color: $color-main-darken;
+	}
+
+	&__img {
+		width: 58px;
+		height: 58px;
+		object-fit: contain;
+	}
+}

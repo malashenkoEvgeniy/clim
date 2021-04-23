@@ -1,0 +1,33 @@
+[data-perfect-scrollbar] {
+	.browserizr-is-desktop & {
+		overflow: auto;
+		margin-right: -5px;
+		max-width: 100%;
+
+		&::-webkit-scrollbar {
+			width: 5px;
+			height: 5px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			width: 5px;
+			border-radius: 5px;
+			background: rgba($color-black, .35);
+			cursor: pointer;
+
+			&:hover {
+				background: rgba($color-black, .5);
+			}
+		}
+	}
+
+	.browserizr-is-desktop.no-cssscrollbar & { // sass-lint:disable-line force-element-nesting
+		overflow: auto;
+		margin-right: -5px;
+		max-width: 100%;
+	}
+}

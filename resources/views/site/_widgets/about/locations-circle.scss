@@ -1,0 +1,42 @@
+.locations-circle {
+	position: absolute;
+	top: -5%;
+	right: 20%;
+	border-radius: 100%;
+	box-sizing: border-box;
+	color: $color-white;
+	text-align: center;
+
+	&::before {
+		position: absolute;
+		top: -15%;
+		left: 0;
+		right: 0;
+		padding-top: 100%;
+		content: '';
+		background: $color-main;
+		z-index: 0;
+		border-radius: 100%;
+		transform: scale(2);
+
+		@include media($screen-lg) {
+			transform: scale(2.6);
+		}
+	}
+
+	&__value {
+		position: relative;
+		z-index: 2;
+		font-weight: $font-weight-bolder;
+		line-height: rem(25);
+		font-size: rem(50);
+		margin-bottom: $gutter-def;
+	}
+
+	&__descr {
+		position: relative;
+		z-index: 2;
+		font-weight: $font-weight-lighter;
+		line-height: 0.8em;
+	}
+}

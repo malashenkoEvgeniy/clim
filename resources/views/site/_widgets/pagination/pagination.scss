@@ -1,0 +1,28 @@
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	&__item {
+		display: block;
+		line-height: rem(20);
+		padding: rem(10);
+		min-width: rem(20);
+		background-color: $color-white;
+		text-decoration: none;
+		color: $color-black;
+		text-align: center;
+		margin: rem(3);
+		cursor: pointer;
+
+		&:hover {
+			background-color: $color-gray-3;
+		}
+
+		&--current {
+			background-color: $color-main;
+			color: $color-white;
+			pointer-events: none;
+		}
+	}
+}

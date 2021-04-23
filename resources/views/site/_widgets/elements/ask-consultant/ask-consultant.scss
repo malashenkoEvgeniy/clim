@@ -1,0 +1,20 @@
+.ask-consultant {
+	width: rem(46);
+	height: rem(46);
+	background-color: $color-main;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 0 0 1px $color-gray-1;
+	display: flex;
+
+	&:hover {
+		background-color: $color-secondary;
+	}
+
+	&__symbol {
+		fill: #fff;
+		margin: auto;
+		max-width: 56%;
+		max-height: 56%;
+	}
+}

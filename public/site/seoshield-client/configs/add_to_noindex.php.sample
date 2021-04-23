@@ -1,0 +1,3 @@
+<?php
+// регулярные выражения для размещения тегов в noindex
+$GLOBALS['SEOSHIELD_CONFIG']['noindex_pattern']=array();

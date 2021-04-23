@@ -1,0 +1,63 @@
+.item-slider {
+	position: relative;
+
+	&:hover {
+		z-index: 5;
+	}
+
+	&__list {
+		&:not(.is-ready) {
+			display: flex;
+
+			.item-card {
+				max-width: 300px;
+				flex-basis: 300px;
+
+				&:nth-child(n+6) {
+					display: none !important; // sass-lint:disable-line no-important
+				}
+
+				@include media($screen-md, max) {
+					&:nth-child(n+4) {
+						display: none !important; // sass-lint:disable-line no-important
+					}
+				}
+
+				@include media($screen-lg, max) {
+					&:nth-child(n+4) {
+						display: none !important; // sass-lint:disable-line no-important
+					}
+				}
+			}
+		}
+
+		&:not(.slick-dotted) {
+			.slick-list {
+				overflow: visible;
+			}
+		}
+	}
+
+	.slick-track {
+		display: flex;
+
+		&::before,
+		&::after {
+			display: none;
+		}
+	}
+
+	.slick-slide {
+		float: none;
+		height: auto;
+
+		&[aria-hidden="true"] {
+			pointer-events: none;
+		}
+
+		> div {
+			position: relative;
+			height: 100%;
+		}
+	}
+}

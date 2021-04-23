@@ -1,0 +1,45 @@
+.item-card-title {
+	display: block;
+
+	&__dfn {
+		color: $custom-color-additional;
+		font-size: rem(14);
+		font-weight: $font-weight-lighter;
+	}
+
+	&__text {
+		display: block;
+		color: $color-black;
+		text-decoration: none;
+		line-height: 1.2em;
+		max-height: 3.6em;
+		overflow: hidden;
+		position: relative;
+		font-size: 12px;
+
+		@include media($screen-sm) {
+			font-size: rem(16);
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 1.6em;
+			left: 0;
+			right: 0;
+			height: 2em;
+			background: linear-gradient(to bottom, rgba($color-white, 0) 0%, rgba($color-white, 1) 100%);
+		}
+
+		&[href] {
+			&:hover {
+				color: $color-main;
+				text-decoration: underline;
+			}
+
+			&:active {
+				color: $color-main-darken;
+			}
+		}
+	}
+}

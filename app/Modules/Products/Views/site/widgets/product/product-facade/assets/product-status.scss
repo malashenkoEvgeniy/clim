@@ -1,0 +1,21 @@
+.product-status {
+	display: flex;
+	align-items: center;
+
+	&__icon {
+		width: rem(18);
+		height: rem(18);
+		padding-right: rem(10);
+		box-sizing: content-box;
+
+		svg {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+
+	&__current {
+		font-size: rem(13);
+		color: $color-black;
+	}
+}

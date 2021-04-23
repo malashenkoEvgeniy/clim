@@ -1,0 +1,40 @@
+////
+/// @group _settings/
+////
+
+/// @access private
+@mixin _helpers-columns-generate ($count, $module, $gap, $modifier: "") {
+	._#{$modifier}columns#{'-' + $module + '-' + $count} {
+		column-count: $count;
+		column-gap: $gap;
+	}
+}
+
+/// @access private
+@mixin _helpers-columns-count ($count, $modules, $modifier: "") {
+	._#{$modifier}columns-1 {
+		column-count: 1;
+		column-gap: normal;
+	}
+
+	@for $i from 2 through $count {
+		@each $module, $gap in $modules {
+			@include _helpers-columns-generate($i, $module, $gap, $modifier);
+		}
+	}
+}
+
+/// Генерация CSS колонок
+/// @requires {mixin} media
+/// @param {Number} $count [2]
+/// @param {Map} $screens [()]
+/// @param {Map} $modules [()]
+@mixin helpers-columns ($count: 2, $screens: (), $modules: ()) {
+	@include _helpers-columns-count($count, $modules);
+
+	@each $screen, $width in $screens {
+		@include media($width) {
+			@include _helpers-columns-count($count, $modules, $screen + '-');
+		}
+	}
+}

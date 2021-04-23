@@ -1,0 +1,44 @@
+.brands-item {
+	$this: &;
+
+	padding: $gutter-md $gutter-lg;
+	display: block;
+	filter: grayscale(100%);
+	transition: background-color $time-now linear, box-shadow $time-now linear, filter $time-now linear;
+	will-change: background-color, box-shadow;
+	text-align: center;
+	margin: $gutter-md 0;
+	text-decoration: none;
+
+	.browserizr-is-mobile & {
+		padding: $gutter-md;
+	}
+
+	&:hover {
+		background-color: $color-white;
+		box-shadow: $shadow-box-round;
+		transition-duration: $time-fast, $time-fast;
+		filter: grayscale(0);
+	}
+
+	&__logo {
+		margin-left: auto;
+		margin-right: auto;
+		object-fit: contain;
+		width: rem(150);
+		height: rem(130);
+
+		@include media($screen-xl) {
+			height: rem(150);
+		}
+	}
+
+	&__name {
+		color: $color-black;
+		font-size: rem(15);
+
+		#{$this}:hover & {
+			color: $color-secondary;
+		}
+	}
+}

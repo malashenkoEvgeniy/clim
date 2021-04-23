@@ -1,0 +1,142 @@
+.order-product {
+	$this: &;
+
+	position: relative;
+	display: block;
+	margin: 10px 0;
+	padding: 10px 0;
+	border-bottom: 1px solid #f2f2f2;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	@include media($screen-md) {
+		margin: 0;
+		padding: 0;
+		border-bottom: none;
+	}
+
+	&__cell {
+		&:nth-child(1) {
+			flex-basis: 4.375rem;
+			max-width: 4.375rem;
+		}
+
+		&:nth-child(2) {
+			flex-basis: calc(100% - 4.375rem);
+			max-width: calc(100% - 4.375rem);
+
+			@include media($screen-ms) {
+				flex-basis: auto;
+				max-width: none;
+			}
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&__preview {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__image {
+		display: block;
+		width: auto;
+		max-width: 42px;
+		height: 40px;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	&__name {
+		color: #000;
+		font-size: 14px;
+		font-weight: 300;
+		transition: color $time-fast ease;
+
+		&:hover {
+			color: $color-secondary;
+		}
+	}
+
+	&__qty {
+		display: block;
+		width: 140px;
+		margin: 0 0 0 auto;
+		padding: rem(6) rem(8);
+		border-radius: 26px;
+		background-color: #f4f5f6;
+		color: #737373;
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+
+		@include media($screen-ms) {
+			padding: rem(12) rem(16);
+		}
+
+		strong {
+			color: #000;
+			font-weight: 700;
+		}
+	}
+
+	&__cost {
+		display: block;
+		width: rem(140);
+		margin: 0 0 0 auto;
+		color: #adb5bd;
+		font-size: rem(16);
+		text-align: right;
+		white-space: nowrap;
+	}
+
+	&__label {
+		display: inline-block;
+		vertical-align: top;
+		padding: rem(5) rem(8);
+		background-color: #efefef;
+		font-size: 12px;
+		line-height: em(16, 12);
+		color: $color-black;
+		box-shadow: 0 0 0 1px $color-secondary;
+	}
+
+	&--checkout {
+		margin: 0;
+		padding: 8px 0;
+		border-bottom: 1px solid #e1e1e1;
+
+		@include media($screen-md) {
+			margin: 0;
+			padding: 8px 0;
+			border-bottom: 1px solid #e1e1e1;
+		}
+
+		#{$this} {
+			&__image {
+				max-width: 50px;
+				height: 50px;
+			}
+
+			&__qty {
+				padding: rem(12) rem(16);
+				background-color: #efefef;
+
+				@include media($screen-ms) {
+					padding: rem(12) rem(16);
+				}
+			}
+		}
+	}
+}

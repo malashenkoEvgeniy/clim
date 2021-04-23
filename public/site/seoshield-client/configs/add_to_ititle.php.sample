@@ -1,0 +1,12 @@
+<?php
+// регулярные выражения для преобразования тегов <a[href]> в <i[title]>
+$GLOBALS['SEOSHIELD_CONFIG']['ititle_pattern']=array();
+
+// параметр который позволяет включить JS код для преобразования <i[title]> на сайте
+$GLOBALS['SEOSHIELD_CONFIG']['ititle_add_js']=true;
+
+// НЕОБЯЗАТЕЛЬНЫЙ параметр который позволяет указать альтернативный JS код преобразования <i[title]> в <a[href]>
+// $GLOBALS['SEOSHIELD_CONFIG']['ititle_js']="";
+
+// автоматически заменять циклические ссылки
+$GLOBALS['SEOSHIELD_CONFIG']['ititle_replace_cyclic_links']=true;

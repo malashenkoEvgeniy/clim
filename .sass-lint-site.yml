@@ -1,0 +1,8 @@
+files:
+  include:
+    - ./resources/assets/site/sass/**/*.scss
+    - ./resources/views/site/**/*.scss
+    - ./app/Modules/**/site/**/*.scss
+  ignore: ./resources/assets/site/sass/vendors/**/*.scss
+options:
+  config-file: ./.sass-lint.yml

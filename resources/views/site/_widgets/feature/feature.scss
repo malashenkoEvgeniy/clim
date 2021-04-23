@@ -1,0 +1,78 @@
+.feature {
+	$this: &;
+
+	min-height: 100%;
+	padding: $gutter-def $gutter-md;
+	background-color: $color-white;
+	transition: color $time-now ease, background-color $time-now ease;
+	box-sizing: border-box;
+	text-align: center;
+
+	@include media ($screen-xxs) {
+		text-align: left;
+	}
+
+	@include media($screen-md) {
+		padding: $gutter-lg;
+	}
+
+	&--shadow {
+		box-shadow: $shadow-box-down;
+	}
+
+	&:hover {
+		color: $color-white;
+		background-color: $color-main;
+		transition-duration: $time-fast, $time-fast;
+
+		#{$this}__name {
+			color: $color-white;
+			transition-duration: $time-fast;
+		}
+	}
+
+	&__icon {
+		width: rem(120);
+		height: rem(120);
+		border-radius: 50%;
+		background-color: $color-gray-1;
+		position: relative;
+		margin: 0 auto rem(20);
+
+		#{$this}--shadow & {
+			background-color: transparent;
+		}
+
+		@include media ($screen-xxs) {
+			width: rem(90);
+			height: rem(90);
+			margin-left: 0;
+		}
+
+		svg {
+			@include absolute-cube(54%);
+			fill: $color-main;
+
+			#{$this}--shadow & {
+				@include absolute-cube(70%);
+			}
+
+			#{$this}--shadow:hover & {
+				fill: $color-white;
+			}
+		}
+	}
+
+	&__name {
+		font-size: rem(18);
+		font-weight: $font-weight-bolder;
+		color: $color-black;
+		margin-bottom: rem(20);
+		transition: color $time-now ease;
+	}
+
+	&__desc {
+		font-size: rem(14);
+		font-weight: $font-weight-lighter;
+	}
+}

@@ -1,0 +1,101 @@
+// sass-lint:disable-all
+#noty_layout__topRight,
+#noty_layout__topLeft {
+	top: 75px;
+}
+
+#noty_layout__bottomRight,
+#noty_layout__bottomLeft {
+	bottom: 10px;
+}
+
+.noty_theme__uzv {
+	&.noty_bar {
+		margin: 10px 0;
+		overflow: hidden;
+		border-radius: 2px;
+		position: relative;
+
+		.noty_body {
+			padding: 10px;
+			font-size: 16px;
+			font-weight: 300;
+		}
+
+		.noty_buttons {
+			padding: 10px;
+		}
+	}
+	&.noty_type {
+		$white: #fff;
+		$black: #000;
+		$alert: #9554ba;
+		$info: #1ca3db;
+		$success: #91c74a;
+		$warning: #e4872e;
+		$error: #de122b;
+
+		&__alert,
+		&__notification {
+			background-color: $alert;
+			border: 1px solid $alert;
+			box-shadow: $alert;
+			color: $white;
+
+			.noty_progressbar {
+				height: 100%;
+				background-color: rgba($black, .35);
+			}
+		}
+
+		&__info,
+		&__information {
+			background-color: $info;
+			border: 1px solid $info;
+			box-shadow: $info;
+			color: $white;
+
+			.noty_progressbar {
+				height: 100%;
+				background-color: rgba($black, .35);
+			}
+		}
+
+		&__success {
+			background-color: $success;
+			border: 1px solid $success;
+			box-shadow: $success;
+			color: $white;
+
+			.noty_progressbar {
+				height: 100%;
+				background-color: rgba($black, .35);
+			}
+		}
+
+		&__warning {
+			background-color: $warning;
+			border: 1px solid $warning;
+			box-shadow: $warning;
+			color: $white;
+
+			.noty_progressbar {
+				height: 100%;
+				background-color: rgba($black, .35);
+			}
+		}
+
+		&__error {
+			background-color: $error;
+			border: 1px solid $error;
+			box-shadow: $error;
+			color: $white;
+
+			.noty_progressbar {
+				height: 100%;
+				background-color: rgba($black, .35);
+			}
+		}
+	}
+}
+// sass-lint:enable-all

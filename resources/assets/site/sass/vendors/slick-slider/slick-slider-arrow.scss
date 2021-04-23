@@ -1,0 +1,45 @@
+.slick-slider-arrow {
+	width: rem(40);
+	height: rem(40);
+	position: relative;
+	user-select: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: background-color $time-now linear, opacity $time-now linear, visibility $time-now linear;
+	will-change: background-color, opacity, visibility;
+
+	&.slick-arrow:not(.slick-disabled) {
+		opacity: 1;
+		visibility: visible;
+		cursor: pointer;
+	}
+
+	&:hover {
+		background-color: $color-main;
+		color: $color-white;
+	}
+
+	&:active {
+		opacity: .6;
+		transition-duration: 0s, 0s;
+	}
+
+	&--prev:hover {
+		svg {
+			transform: translateX(-2px);
+		}
+	}
+
+	&--next:hover {
+		svg {
+			transform: translateX(2px);
+		}
+	}
+
+	svg {
+		@include absolute-center(rem(22));
+		fill: currentColor;
+		transition: transform $time-now linear;
+		will-change: transform;
+	}
+}

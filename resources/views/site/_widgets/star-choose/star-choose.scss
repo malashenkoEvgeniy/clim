@@ -1,0 +1,57 @@
+.star-choose {
+	$this: &;
+
+	display: inline-block;
+	vertical-align: top;
+	user-select: none;
+	font-size: 0;
+
+	&__input {
+		width: 45px;
+		height: 40px;
+		opacity: 0;
+		position: relative;
+		z-index: 10;
+		float: right;
+		cursor: pointer;
+		padding-left: 5px;
+	}
+
+	&__svg-holder {
+		float: right;
+		width: 40px;
+		height: 40px;
+		position: relative;
+		margin-right: -40px;
+
+		#{$this}__input:hover ~ & #{$this}__svg {
+			fill: $color-secondary;
+		}
+
+		// sass-lint:disable force-element-nesting
+		#{$this}:not(:hover) #{$this}__input:checked~ & #{$this}__svg {
+			fill: $color-secondary;
+		}
+
+		@for $i from 1 to 6 {
+			&:nth-of-type(#{$i}) #{$this}__svg {
+				transition-delay: #{$i * 0.03}s;
+			}
+		}
+		// sass-lint:enable force-element-nesting
+
+	}
+
+	&__svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		max-width: 100%;
+		max-height: 100%;
+		margin: auto;
+		fill: $color-gray-2;
+		transition: fill 0.2s ease;
+	}
+}

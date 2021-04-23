@@ -1,0 +1,146 @@
+.cart-briefly {
+	position: relative;
+	display: block;
+	text-align: center;
+
+	&__info {
+		display: block;
+		margin: 0 0 rem(20);
+		color: rgba($color-black, .8);
+
+		strong {
+			font-weight: 900;
+		}
+	}
+
+	// &__actions {}
+}
+
+.cart-checkout {
+	position: sticky;
+	top: rem(40px);
+	z-index: 1;
+	display: block;
+	max-width: 480px;
+	margin: 0 auto;
+
+	&__head {
+		position: relative;
+		display: block;
+		margin: 0 0 rem(40);
+		text-align: center;
+	}
+
+	&__body {
+		position: relative;
+		display: block;
+	}
+
+	&__footer {
+		position: relative;
+		display: block;
+		margin: rem(40) 0 0;
+	}
+
+	&__title {
+		color: #000;
+		font-size: rem(32);
+		font-weight: $font-weight-bolder;
+	}
+
+	&__total-amount {
+		display: block;
+		margin: 0;
+		padding: 16px 0;
+		border-top: 1px solid #e1e1e1;
+		border-bottom: 1px solid #e1e1e1;
+		color: #000;
+		font-size: 16px;
+
+		strong {
+			font-weight: 700;
+		}
+	}
+}
+
+.cart-detailed {
+	$this: &;
+
+	position: relative;
+	display: block;
+	padding: rem(10) rem(15);
+
+	&__body {
+		display: block;
+		margin: rem(-30) 0 0;
+	}
+
+	&__footer {
+		display: block;
+		margin: rem(27) 0 0;
+		position: sticky;
+		bottom: -1px;
+		background: $color-white;
+		z-index: 9;
+		padding-top: rem(5);
+		padding-bottom: rem(5);
+
+		@include media($screen-md) {
+			margin: rem(20) 0 0;
+		}
+	}
+
+	&__section {
+		margin: 0;
+
+		& + & {
+			margin-top: rem(40);
+		}
+	}
+
+	&__title {
+		display: block;
+		margin: rem(24) 0 rem(8);
+		padding: 0;
+		color: #000;
+		font-size: rem(24);
+		font-weight: 900;
+		line-height: 1.15;
+	}
+
+	&__items-list {
+		display: block;
+	}
+
+	&__total-price {
+		display: block;
+		margin: rem(20) 0 0;
+		color: #000;
+		font-size: 20px;
+		font-weight: 700;
+		text-align: right;
+	}
+
+	&__old-total-price {
+		display: block;
+		margin: rem(20) 0 0;
+		color: #adb5bd;
+		font-size: 14px;
+		text-align: right;
+		text-decoration: line-through;
+	}
+
+	&.is-empty {
+		max-width: 768px;
+		margin: 0 auto;
+		text-align: center;
+	}
+}
+
+[data-cart-container] {
+	@include preloader();
+}
+
+button[data-product-id] { // sass-lint:disable-line force-attribute-nesting
+	@include button-pulse();
+}

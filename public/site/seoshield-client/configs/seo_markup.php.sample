@@ -1,0 +1,14 @@
+<?php
+/**
+ * параметры выборки элементов контента предназначеных для разметки соцсетей
+ * контетных областей может быть несколько, поэтому в массиве мы перечисляем типы и параметры выборки
+ */
+$GLOBALS['SEOSHIELD_CONFIG']['seo_markup']['content_markup_img'] = '#<!--seo_markup_img_start_(.*?)_--seo_markup_img_end-->#s';
+
+$GLOBALS['SEOSHIELD_CONFIG']['seo_markup']['content_product_page'] = '<!--isset_product_page-->';
+
+$GLOBALS['SEOSHIELD_CONFIG']['seo_markup']['content_listing_page'] = '<!--isset_listing_page-->';
+
+$GLOBALS['SEOSHIELD_CONFIG']['seo_markup']['facebook_url'] = 'Url facebook страницы';
+
+$GLOBALS['SEOSHIELD_CONFIG']['seo_markup']['project_title'] = 'Имя проекта';

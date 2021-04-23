@@ -1,0 +1,111 @@
+.feature-slider {
+	&__list {
+		&:not(.is-ready) {
+			display: flex;
+			flex-wrap: nowrap;
+			max-width: 100%;
+			overflow: hidden;
+		}
+
+		&:not(.slick-dotted) {
+			.slick-list {
+				overflow: visible;
+			}
+		}
+
+		&--slides-4,
+		&--slides-5 {
+			&:not(.is-ready) {
+				.feature {
+					@include flex-cell-width(100%);
+					flex-shrink: 0;
+
+					@include media($screen-xxs) {
+						@include flex-cell-width(50%);
+
+						&.feature--shadow {
+							@include flex-cell-width(calc(50% - #{$gutter-def}));
+							margin: 0 #{$gutter-def / 2} rem(50);
+						}
+					}
+
+					@include media($screen-sm) {
+						@include flex-cell-width(100% / 3);
+
+						&.feature--shadow {
+							@include flex-cell-width(calc(#{100% / 3} - #{$gutter-def}));
+						}
+					}
+
+					@include media($screen-md) {
+						@include flex-cell-width(25%);
+
+						&.feature--shadow {
+							@include flex-cell-width(calc(25% - #{$gutter-def}));
+						}
+					}
+				}
+			}
+		}
+
+		&--slides-5 {
+			&:not(.is-ready) {
+				.feature {
+					@include media($screen-def) {
+						@include flex-cell-width(20%);
+
+						&.feature--shadow {
+							@include flex-cell-width(calc(20% - #{$gutter-def}));
+						}
+					}
+				}
+			}
+		}
+
+		&--split {
+			&.slick-dotted {
+				@include media($screen-xl, max) {
+					margin: 0 #{-$gutter-sm};
+
+					@include media($screen-xs) {
+						margin: 0 #{-$gutter-md};
+					}
+				}
+			}
+
+			.slick-slide {
+				> div {
+					padding: 0 #{$gutter-def / 2};
+				}
+			}
+
+			.slick-list {
+				padding-bottom: rem(50);
+			}
+
+			+ .feature-slider__dots {
+				margin-top: rem(-20);
+			}
+		}
+	}
+
+	.slick-track {
+		display: flex;
+
+		&::before,
+		&::after {
+			display: none;
+		}
+	}
+
+	.slick-slide {
+		float: none;
+		height: auto;
+
+
+		> div {
+			position: relative;
+			height: 100%;
+		}
+	}
+}

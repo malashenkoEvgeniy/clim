@@ -1,0 +1,74 @@
+.action-bar-catalog-list {
+	$this: &;
+
+	padding: rem(10) 0;
+
+	&__item {
+		&:first-child {
+			#{$this}__text {
+				&::before {
+					display: none;
+				}
+			}
+		}
+
+		&:hover {
+			background: rgba($color-white, 0.5);
+		}
+	}
+
+	&__link {
+		display: flex;
+		padding: 0 rem(20);
+		text-decoration: none;
+
+		&:hover > #{$this}__text {
+			color: $color-main;
+		}
+	}
+
+	&__text {
+		display: block;
+		width: 100%;
+		padding: rem(10) rem(10) rem(10) 0;
+		line-height: rem(20);
+		font-size: rem(15);
+		font-weight: $font-weight-lighter;
+		color: $color-black;
+		position: relative;
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			width: 7px;
+			height: 7px;
+			border-width: 1px 1px 0 0;
+			border-style: solid;
+			margin-top: -4px;
+			opacity: 0;
+			transition: 0.15s ease;
+			transform: scale(1, 1.2) rotate(45deg);
+			transform-origin: top center;
+
+			.js-submenu-item & {
+				opacity: 1;
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background-color: $custom-color-border-muted;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+.thank-you {
+	margin: rem(50) auto;
+	max-width: 600px;
+
+	&__inner {
+		background: $color-main;
+		padding: rem(25) rem(30);
+		text-align: center;
+		color: $color-white;
+	}
+}

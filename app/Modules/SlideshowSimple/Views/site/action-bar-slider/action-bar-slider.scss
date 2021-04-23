@@ -1,0 +1,94 @@
+.action-bar-holder {
+	@extend %action-bar-slide;
+	position: relative;
+	background-color: #444;
+	margin-left: -$gutter-sm;
+	margin-right: -$gutter-sm;
+
+	@include media($screen-xs) {
+		margin-left: -$gutter-md;
+		margin-right: -$gutter-md;
+	}
+
+	.browserizr-is-desktop & {
+		@include media(1024px) {
+			margin: 0;
+		}
+	}
+
+	.browserizr-is-mobile & {
+		@include media($screen-xxl) {
+			margin: 0;
+		}
+	}
+}
+
+.action-bar-slider {
+	@include absolute-cube(100%);
+
+	&__nav {
+		position: absolute;
+		bottom: 1rem;
+		left: 1rem;
+		right: 1rem;
+		visibility: hidden;
+		color: $color-white;
+
+		@include media($screen-def, max) {
+			bottom: 0;
+			pointer-events: none;
+		}
+
+		.slick-slider-arrow {
+			filter: drop-shadow(0 0 1px $color-main);
+
+			&:hover {
+				background-color: $color-secondary;
+			}
+		}
+	}
+
+	&__dots {
+		.slick-dots {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			justify-content: center;
+			margin: rem(14) 0 0;
+			padding: 0;
+
+			li {
+				display: block;
+				font-size: 0;
+				line-height: 0;
+				margin: 0 5px 5px;
+				visibility: visible;
+			}
+
+			button {
+				padding: 0;
+				margin: 0;
+				background: $color-white;
+				border-width: 0;
+				width: rem(12);
+				height: rem(12);
+				transition: $time-fast linear;
+				position: relative;
+				outline: none;
+				cursor: pointer;
+
+				&:hover {
+					box-shadow: inset 0 0 0 1px $color-white, inset 0 0 0 2px $color-main;
+				}
+			}
+
+			.slick-active {
+				cursor: default;
+
+				button {
+					background-color: $color-main;
+				}
+			}
+		}
+	}
+}

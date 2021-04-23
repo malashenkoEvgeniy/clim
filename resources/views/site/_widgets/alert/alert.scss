@@ -1,0 +1,59 @@
+.alert {
+	$this: &;
+
+	display: block;
+	padding: rem(20);
+	border-radius: 4px;
+	box-shadow: 0 10px 50px 0 rgba(14, 29, 67, 0.1);
+	background-color: $color-white;
+
+	&__icon {
+		display: block;
+		width: 24px;
+		height: 21px;
+		margin-top: -4px;
+
+		.svg-icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+			fill: rgba($color-black, .8);
+		}
+	}
+
+	&__content {
+		& > * { // sass-lint:disable-line no-universal-selectors
+			margin: 6px 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// &__button {}
+
+	@each $status, $color in (
+	main: $color-main,
+	secondary: $color-secondary,
+	success: $color-success,
+	info: $color-info,
+	warning: $color-warning,
+	danger: $color-danger,
+	) {
+		&--#{$status} {
+			#{$this} {
+				&__icon {
+					.svg-icon {
+						fill: $color;
+					}
+				}
+			}
+		}
+	}
+}
+

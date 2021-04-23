@@ -1,0 +1,10 @@
+////
+/// @group _vendors/
+////
+@import "~assets/site/sass/settings/all-settings";
+
+/// Description
+.mfp-container {
+	@include preloader('mfp-s-loading');
+	padding: 5px;
+}

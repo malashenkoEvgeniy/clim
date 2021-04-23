@@ -1,0 +1,62 @@
+// сбор всех основных блоков для текущего проекта
+// данный файл только импортирует нужные блоки кода
+// написание чистого кода в этом файле - запрещается
+// -------------------------------------------------
+
+@import "settings/all-settings";
+@import "settings/placeholders";
+
+// ----------------------------------------
+// Layouts
+// ----------------------------------------
+
+@import "blocks/layouts/layout";
+@import "blocks/layouts/section";
+@import "blocks/layouts/container";
+
+// ----------------------------------------
+// Global un grouped
+// ----------------------------------------
+
+@import "blocks/box";
+@import "blocks/link";
+@import "blocks/button";
+@import "blocks/menu-button";
+@import "blocks/ratio";
+@import "blocks/scroll-text";
+@import "blocks/title";
+@import "blocks/text";
+@import "blocks/inline-control";
+@import "blocks/select";
+@import "blocks/separator";
+@import "blocks/filter-params";
+@import "blocks/range-input";
+@import "blocks/range-button";
+@import "blocks/hint";
+@import "blocks/control";
+@import "blocks/input-quantity";
+@import "blocks/form";
+@import "blocks/dropdown";
+@import "blocks/share";
+@import "blocks/nav-links";
+@import "blocks/popover";
+@import "blocks/animation";
+@import "blocks/zebra";
+@import "blocks/tabs-nav";
+@import "blocks/tabs-blocks";
+@import "blocks/particle";
+@import "blocks/map-holder";
+@import "blocks/fixed-button";
+
+// ----------------------------------------
+// Site wysiwyg
+// ----------------------------------------
+
+@import "wysiwyg";
+
+// ----------------------------------------
+// Site modules
+// ----------------------------------------
+
+@import "_site-modules/all";
+@import "essentials/print";

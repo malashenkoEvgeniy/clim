@@ -1,0 +1,7 @@
+.slick-slider-list {
+	&:not(.is-ready) &__item {
+		&:not(:first-child) {
+			display: none;
+		}
+	}
+}

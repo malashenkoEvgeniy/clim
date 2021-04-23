@@ -1,0 +1,29 @@
+////
+/// @group vendors/mmenu/
+////
+
+/// Description
+.mm-iconbar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow-x: hidden;
+	overflow-y: auto;
+	left: auto;
+	right: 0;
+	border-width: 0;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		border-left: 1px solid $mm_t_borderColor; // sass-lint:disable-line variable-name-format
+	}
+
+	&__top,
+	&__bottom {
+		position: static;
+	}
+}

@@ -1,0 +1,38 @@
+.main_page_h1{
+	text-align: center;
+}
+
+.links_block ul{
+	list-style-type: none;
+	padding-left: unset;
+}
+
+.links_block_title{
+	font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.links_block li{
+	margin-top: 10px;
+}
+
+.links_block a{
+	text-decoration: none;
+	color: #000;
+}
+
+.links_block a:hover{
+	color: var(--color-main);
+}
+
+.second_inner_menu{
+	margin-left: 300px;
+}
+
+.action-bar-submenu{
+	padding-left: 50px;
+	padding-top: unset;
+	white-space: nowrap;
+	column-count: unset;
+}

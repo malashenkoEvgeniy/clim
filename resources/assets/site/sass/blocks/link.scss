@@ -1,0 +1,83 @@
+////
+/// @group _blocks/
+////
+
+/// Description
+.link {
+	color: $color-secondary;
+	cursor: pointer;
+
+	&:hover {
+		color: $color-secondary-lighten;
+	}
+
+	&:active {
+		color: $color-secondary-darken;
+	}
+
+	&--logo {
+		color: $color-main;
+
+		&:hover {
+			color: $color-main-lighten;
+		}
+
+		&:active {
+			color: $color-main-darken;
+		}
+	}
+
+	&--invert {
+		color: $color-gray-5;
+
+		&:hover {
+			color: $color-gray-2;
+		}
+
+		&:active {
+			color: $color-gray-8;
+		}
+	}
+
+	&--black {
+		color: $color-black;
+
+		&:hover {
+			color: $color-main;
+		}
+
+		&:active {
+			text-decoration: none;
+		}
+	}
+
+	&--main {
+		color: $color-main;
+
+		&:hover {
+			color: $color-secondary;
+		}
+
+		&:active {
+			color: $color-secondary-darken;
+		}
+	}
+
+	&--sm {
+		color: $color-secondary;
+		font-size: 12px;
+		text-decoration: none;
+		cursor: pointer;
+
+		&:hover {
+			color: $color-main;
+			text-decoration: underline;
+		}
+	}
+
+	&--dashed {
+		color: $color-main;
+		text-decoration: none;
+		border-bottom: 1px dashed;
+	}
+}

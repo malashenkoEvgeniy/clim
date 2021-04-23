@@ -1,0 +1,42 @@
+////
+/// @group _settings/
+////
+
+/// @param {String} $mod [""] - название брейкпоинта с разделителем
+/// @access private
+@mixin _helpers-text-generate($mod: "") {
+	// sass-lint:disable no-important
+	._#{$mod}text-left {
+		text-align: left !important;
+	}
+
+	._#{$mod}text-right {
+		text-align: right !important;
+	}
+
+	._#{$mod}text-center {
+		text-align: center !important;
+	}
+
+	._#{$mod}text-justify {
+		text-align: justify !important;
+	}
+
+	._#{$mod}ellipsis {
+		@include ellipsis();
+	}
+	// sass-lint:enable no-important
+}
+
+/// Хелперы управления текстом
+/// @requires {mixin} media
+/// @requires {mixin} _helpers-text-generate
+/// @param {Map} $screens [()] - карта брейкпоинтов, для которых нужно сделать хелперы
+@mixin helpers-text ($screens: ()) {
+	@include _helpers-text-generate();
+	@each $screen, $width in $screens {
+		@include media($width) {
+			@include _helpers-text-generate($screen + '-');
+		}
+	}
+}

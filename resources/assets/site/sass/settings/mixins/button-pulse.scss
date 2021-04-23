@@ -1,0 +1,24 @@
+@mixin button-pulse ($classname: 'is-pending') {
+	$ttf: cubic-bezier(.42, .61, .58, .41);
+
+	&.#{$classname} {
+		cursor: not-allowed;
+		pointer-events: none;
+		filter: grayscale(1);
+		animation: pulse 1s $ttf infinite;
+	}
+
+	@keyframes pulse {
+		0% {
+			opacity: .1;
+		}
+
+		50% {
+			opacity: .4;
+		}
+
+		100% {
+			opacity: .1;
+		}
+	}
+}

@@ -1,0 +1,52 @@
+<?php
+/***
+PLACE THIS FILE INTO /seoshield-client/modules/ DIRECTORY
+*/
+error_reporting(E_ERROR);
+
+if(!defined("SEOSHIELD_ROOT_PATH"))define("SEOSHIELD_ROOT_PATH",rtrim(realpath(dirname(__FILE__)),"/"));
+
+class SeoShieldModule_generate_formulas_config extends SeoShieldModule_generate_formulas
+{
+	public function setup_variables($out_html){
+		return $out_html;
+	}
+
+	function set_robots_noindex_nofollow($out_html){
+		if (strpos($out_html, '<meta name=[\'\"]?robots[\'\"]? content="noindex, nofollow" />') === false){
+			if (preg_match('#<meta[^>]*?name=[\'\"]?robots[\'\"]?[^>]*?>#si', $out_html)){
+				$out_html = preg_replace('#<meta[^>]*?name=[\'\"]?robots[\'\"]?[^>]*?>#si', '<meta name="robots" content="noindex, nofollow" />', $out_html);
+			} else {
+				$out_html = str_replace('</head>', '<meta name="robots" content="noindex, nofollow" />'."\n".'</head>', $out_html);
+			}
+		}
+		return $out_html;
+	}
+
+	function h1_formulas_generation($out_html)
+	{
+		$curr_h1 = "";
+		preg_match('#<h1[^>]*?>(.*?)<\/h1>#s', $out_html, $finder);
+		if (isset($finder[0]) && !empty($finder[1])){
+			$curr_h1 = strip_tags($finder[1]);
+			$curr_h1 = trim($curr_h1);
+		}
+
+		$static_h1 = "";
+		if (file_exists(SEOSHIELD_ROOT_PATH."/data/static_meta.cache.php")){
+			if(!isset($GLOBALS['SEOSHIELD_DATA']['static_meta']))
+				$this->get_static_meta();
+
+			if (isset($GLOBALS['SEOSHIELD_DATA']['static_meta']['h1'])){
+				$static_h1 = $GLOBALS['SEOSHIELD_DATA']['static_meta']['h1'];
+			}
+		}
+
+		if ($static_h1 != ""){
+			$curr_h1 = $static_h1;
+		}
+        
+		return $curr_h1;
+	}
+
+}

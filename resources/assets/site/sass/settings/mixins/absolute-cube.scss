@@ -1,0 +1,29 @@
+////
+/// @group _settings/
+////
+
+/// @param {Number} $size - размер элемента в процентах
+/// @param {Bool} $set-absolute [true] - добавить абсолютное позиционирование
+/// @example
+///   @include absolute-cube(54%)
+///   // position: absolute;
+///   // top: 27%;
+///   // left: 27%;
+///   // width: 54%;
+///   // height: 54%;
+/// @example
+///   @include absolute-cube(120%)
+///   // position: absolute;
+///   // top: -10%;
+///   // left: -10%;
+///   // width: 120%;
+///   // height: 120%;
+@mixin absolute-cube ($size, $set-absolute: true) {
+	@if ($set-absolute) {
+		position: absolute;
+	}
+	top: (100% - $size) / 2;
+	left: (100% - $size) / 2;
+	width: $size;
+	height: $size;
+}

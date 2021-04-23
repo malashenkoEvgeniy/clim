@@ -1,0 +1,131 @@
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: $color-white;
+
+	&__head {
+		display: block;
+		margin: 0;
+		padding: rem(24) rem(32) rem(20) rem(24);
+	}
+
+	&__body {
+		flex-grow: 1;
+	}
+
+	&__footer {
+		display: block;
+		margin: 0;
+		padding: rem(20) rem(32) rem(24) rem(24);
+	}
+
+	&__title {
+		display: block;
+		margin: 0;
+		color: #b5b9c6;
+		font-size: 16px;
+		font-weight: 400;
+	}
+
+	&__beacon {
+		position: relative;
+		display: block;
+		width: 13px;
+		height: 16px;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: -5px;
+			right: -5px;
+			z-index: 1;
+			display: block;
+			width: 9px;
+			height: 9px;
+			border-radius: 50%;
+			background-color: #b5b9c6;
+		}
+
+		.svg-icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+			fill: #b5b9c6;
+		}
+
+		&.has-info {
+			&::after {
+				background-color: $color-secondary;
+			}
+		}
+	}
+}
+
+.sidebar-item {
+	$this: &;
+
+	position: relative;
+	display: block;
+	padding: rem(19) rem(30);
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	transition: box-shadow $time-normal ease, background-color $time-normal ease;
+
+	&__icon {
+		display: block;
+		width: 18px;
+		height: 20px;
+
+		.svg-icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+			fill: #ccc;
+			color: #ccc;
+			transition: fill $time-normal ease;
+		}
+	}
+
+	&__title {
+		display: block;
+		margin: 2px 0 0;
+		color: $color-black;
+		font-size: 16px;
+		font-weight: 300;
+	}
+
+	&__desc {
+		display: block;
+		margin: rem(5) 0 0;
+		color: #989898;
+		font-size: 12px;
+		font-weight: 300;
+	}
+
+	&.is-active,
+	&:hover {
+		box-shadow: inset 4px 0 0 0 $color-main;
+		text-decoration: none;
+
+		#{$this} {
+			&__icon {
+				.svg-icon {
+					fill: $color-main;
+					color: $color-main;
+				}
+			}
+		}
+	}
+
+	&.is-active {
+		cursor: default;
+	}
+
+	&--logout {
+		position: sticky;
+		top: calc(100% - #{rem(60)});
+		z-index: 1;
+	}
+}

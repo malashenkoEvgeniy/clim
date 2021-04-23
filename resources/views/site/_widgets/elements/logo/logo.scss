@@ -1,0 +1,46 @@
+.logo {
+	$this: &;
+
+	display: flex;
+	align-items: center;
+	max-width: 180px;
+	text-decoration: none;
+
+	@include media($screen-def) {
+		max-width: 210px;
+		height: rem(62);
+	}
+
+	&__image {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	&__text {
+		font-size: rem(30);
+		font-weight: 900;
+		word-break: break-word;
+	}
+
+	&--mobile {
+		display: flex;
+		align-items: center;
+		max-width: 60px;
+		height: 26px;
+		overflow: hidden;
+
+		#{$this}__text {
+			word-break: normal;
+		}
+	}
+
+	&[href] {
+		&:hover {
+			filter: brightness(1.3);
+		}
+
+		&:active {
+			filter: brightness(.8);
+		}
+	}
+}

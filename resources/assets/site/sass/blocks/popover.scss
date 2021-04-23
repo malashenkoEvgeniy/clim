@@ -1,0 +1,72 @@
+.popover {
+	position: absolute;
+	top: calc(100% + 16px);
+	right: 0;
+	z-index: 4;
+	display: block;
+	width: rem(316);
+	padding: rem(34) rem(26) rem(28);
+	box-shadow: 0 10px 50px 0 rgba(14, 69, 27, .1);
+	background-color: $color-white;
+	color: #aaa;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.466;
+	cursor: auto;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(6px) translateZ(0);
+	transition-property: transform, opacity, visibility;
+	transition-duration: $time-fast;
+	transition-delay: .3s;
+	transition-timing-function: ease;
+	will-change: transform, opacity, visibility;
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 100%;
+		right: 22px;
+		z-index: 4;
+		display: block;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-color: transparent transparent currentColor;
+		border-width: 0 11px 11px;
+		color: #fff;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		right: 0;
+		z-index: 3;
+		display: block;
+		height: 16px;
+		background-color: rgba($color-white, .001);
+	}
+
+	[data-mfp-src] {
+		color: $color-main;
+		cursor: pointer;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.svg-icon {
+		width: rem(44);
+		height: rem(40);
+		fill: $color-secondary;
+		color: $color-white;
+
+		&--icon-shopping {
+			color: $color-secondary;
+		}
+	}
+}

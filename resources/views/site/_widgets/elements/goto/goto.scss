@@ -1,0 +1,80 @@
+.goto {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	color: $color-gray-6;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: rem(14);
+	line-height: 1;
+
+	&[href] {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		margin-top: rem(-16);
+		width: rem(32);
+		height: rem(32);
+		background-color: $color-main;
+
+		svg {
+			@include absolute-cube(46%);
+			fill: $color-white;
+			transition: transform $time-now linear;
+			will-change: transform;
+		}
+	}
+
+	&:hover {
+		color: $color-main-lighten;
+	}
+
+	&:hover &__icon {
+		background-color: $color-main-lighten;
+	}
+
+	&:active {
+		color: $color-main-darken;
+	}
+
+	&:active &__icon {
+		background-color: $color-main-darken;
+	}
+
+	&--prev {
+		padding-left: rem(50);
+
+		.goto__icon {
+			left: 0;
+		}
+
+		&:hover {
+			.goto__icon {
+				svg {
+					transform: translateX(-3px);
+				}
+			}
+		}
+	}
+
+	&--next {
+		padding-right: rem(50);
+
+		.goto__icon {
+			right: 0;
+		}
+
+		&:hover {
+			.goto__icon {
+				svg {
+					transform: translateX(3px);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,73 @@
+.network-link {
+	$this-networks: (
+		vk: $network-color-vk,
+		facebook: $network-color-facebook,
+		instagram: $network-gradient-instagram,
+		twitter: $network-color-twitter,
+		google-plus: $network-color-google-plus,
+		youtube: $network-color-youtube,
+	);
+
+	width: rem(26);
+	height: rem(26);
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	background-color: #cbcbcb;
+	margin-left: 4px;
+	fill: $color-white;
+
+	@each $network, $color in ($this-networks) {
+		@if $network == instagram {
+			&--#{$network} {
+				&:hover,
+				&-hover {
+					background: $color;
+				}
+			}
+		} @else {
+			&--#{$network} {
+				&:hover,
+				&-hover {
+					background-color: $color;
+				}
+			}
+		}
+	}
+
+	&:active {
+		filter: brightness(.825);
+	}
+
+	&__symbol {
+		@include absolute-cube(50%)
+	}
+
+	@include media($screen-lg) {
+		width: rem(40);
+		height: rem(40);
+	}
+
+	&--social-login {
+		width: 100%;
+		height: rem(40);
+		margin-left: 0;
+		padding: 0;
+		border: none;
+		cursor: pointer;
+		outline: none;
+
+		@include media($screen-lg) {
+			width: 100%;
+			height: rem(40);
+		}
+
+		&:hover {
+			filter: brightness(1.125);
+		}
+
+		&:active {
+			filter: brightness(1);
+		}
+	}
+}

@@ -1,0 +1,125 @@
+////
+/// @group _settings/
+////
+
+/// Flex сетка
+/// @require {mixin} media
+/// @require {mixin} flex-cell-width
+/// @param {Number} $columns [12] - количество колонок
+/// @param {Map} $screens [()] - карта брейкпоинтов, для которых нужно сделать хелперы
+@mixin helpers-grid($columns: 12, $screens: ()) {
+	.gcell {
+		min-width: 0;
+		box-sizing: border-box;
+	}
+
+	// контейнер
+	.grid {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		// Создаем классы по схеме .grid--3 > .gcell
+		@for $i from 1 through $columns {
+			/// @access private
+			/// @type {Size}
+			$cell-width: percentage($columns / $i / $columns);
+
+			&--#{$i} {
+				& > * { // sass-lint:disable-line no-universal-selectors
+					@include flex-cell-width($cell-width);
+				}
+			}
+
+			// с медиа-запросами по схеме .grid--lg-3 > .gcell
+			@each $screen, $width in $screens {
+				@include media($width) {
+					&--#{$screen}-#{$i} {
+						& > * { // sass-lint:disable-line no-universal-selectors
+							@include flex-cell-width($cell-width);
+						}
+					}
+				}
+			}
+		}
+
+		&--auto {
+			& > * { // sass-lint:disable-line no-universal-selectors
+				@include flex-cell-width(auto);
+				min-width: 1px; // IE11 fix
+			}
+		}
+
+		@each $screen, $width in $screens {
+			@include media($width) {
+				&--#{$screen}-auto {
+					& > * { // sass-lint:disable-line no-universal-selectors
+						@include flex-cell-width(auto);
+						min-width: 1px; // IE11 fix
+					}
+				}
+			}
+		}
+	}
+
+	// ячейки
+	.gcell {
+		min-height: 1px;
+		box-sizing: border-box;
+
+		&--auto {
+			@include flex-cell-width(auto);
+			min-width: 1px; // IE11 fix
+		}
+
+		// с медиа-запросами по схеме .gcell--lg-auto
+		@each $screen, $width in $screens {
+			@include media($width) {
+				&--#{$screen}-auto {
+					@include flex-cell-width(auto);
+					min-width: 1px; // IE11 fix
+				}
+			}
+		}
+
+		// Создаем классы по схеме .gcell--3
+		@for $i from 1 through $columns {
+			$cell-width: percentage($i / $columns);
+
+			&--#{$i} {
+				@include flex-cell-width($cell-width);
+			}
+		}
+
+		&--1-of-5 {
+			@include flex-cell-width(20%);
+		}
+
+		&--4-of-5 {
+			@include flex-cell-width(80%);
+		}
+
+		//  с медиа-запросами по схеме .gcell--lg-auto
+		@each $screen, $width in $screens {
+			@include media($width) {
+				@for $i from 1 through $columns {
+					$cell-width: percentage($i / $columns);
+
+					&--#{$screen}-#{$i} {
+						@include flex-cell-width($cell-width);
+					}
+				}
+
+				&--#{$screen}-1-of-5 {
+					@include flex-cell-width(20%);
+				}
+
+				&--#{$screen}-4-of-5 {
+					@include flex-cell-width(80%);
+				}
+			}
+		}
+	}
+}

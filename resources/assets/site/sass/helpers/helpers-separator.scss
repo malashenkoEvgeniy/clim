@@ -1,0 +1,74 @@
+////
+/// @group _settings/
+////
+
+/// @access private
+/// @param {String} $mod [""] - название брейкпоинта с разделителем
+/// @requires {mixin} clearfix
+@mixin _helpers-separator-generate($mod: "") {
+	// sass-lint:disable no-important
+	._#{$mod}separator-left {
+		position: relative;
+
+		&::after {
+			position: absolute;
+			display: block;
+			content: '';
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 1px;
+			background: $color-gray-1;
+		}
+	}
+
+	._#{$mod}separator-bottom {
+		position: relative;
+
+		&::after {
+			position: absolute;
+			display: block;
+			content: '';
+			left: 0;
+			bottom: 0;
+			right: 0;
+			height: 1px;
+			background: $color-gray-1;
+
+		}
+	}
+
+	._#{$mod}separator-top {
+		position: relative;
+
+		&::after {
+			position: absolute;
+			display: block;
+			content: '';
+			left: 0;
+			top: 0;
+			right: 0;
+			height: 1px;
+			background: $color-gray-1;
+		}
+	}
+
+	._#{$mod}separator-none {
+		&::after {
+			display: none;
+		}
+	}
+	// sass-lint:enable no-important
+}
+
+/// @requires {mixin} media
+/// @requires {mixin} _helpers-position-generate
+/// @param {Map} $screens [()] - карта брейкпоинтов, для которых нужно сделать хелперы
+@mixin helpers-separator($screens: ()) {
+	@include _helpers-separator-generate();
+	@each $screen, $width in $screens {
+		@include media($width) {
+			@include _helpers-separator-generate($screen + '-');
+		}
+	}
+}

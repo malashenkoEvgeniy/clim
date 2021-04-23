@@ -1,0 +1,90 @@
+.dropdown {
+	$this: &;
+
+	position: relative;
+	display: block;
+
+	&__head {
+		position: relative;
+		z-index: 4;
+		display: block;
+		padding: 6px;
+		border-radius: 0;
+		background-color: #fff;
+		cursor: pointer;
+		transition-property: box-shadow;
+		transition-duration: $time-fast;
+		transition-timing-function: ease;
+		will-change: box-shadow;
+
+		&:hover,
+		&:active {
+			box-shadow: 0 0 4px 0 rgba(#000, .3);
+		}
+	}
+
+	&__head-svg {
+		display: block;
+		width: 14px;
+		height: 11px;
+		fill: #333;
+
+		.svg-icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__body {
+		position: absolute;
+		z-index: 3;
+		display: block;
+		padding: 10px rem(50);
+		border-radius: 0;
+		box-shadow: 0 10px 50px 0 rgba(14, 29, 67, .2);
+		background-color: #fff;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity $time-fast ease;
+		white-space: nowrap;
+		box-sizing: border-box;
+	}
+
+	&.is-active {
+		#{$this} {
+			&__head {
+				box-shadow: none;
+			}
+
+			&__head-svg {
+				fill: $color-info;
+			}
+
+			&__body {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&--to-left {
+		#{$this} {
+			&__body {
+				top: rem(-14);
+				right: rem(-14);
+				padding: 10px rem(50) 10px 16px;
+			}
+		}
+	}
+
+	&--to-right {
+		#{$this} {
+			&__body {
+				top: rem(-14);
+				left: rem(-14);
+				padding: 10px 16px 10px rem(50);
+			}
+		}
+	}
+}

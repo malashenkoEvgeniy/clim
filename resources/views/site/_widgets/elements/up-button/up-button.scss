@@ -1,0 +1,38 @@
+.up-button {
+	display: flex;
+	width: 36px;
+	height: 36px;
+	background: $color-secondary;
+	margin: 0.5rem auto 2px;
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(0.5);
+	transition: 0.2s ease-out;
+	cursor: pointer;
+	box-shadow: 0 0 0 1px $color-gray-1;
+	outline: none;
+
+	&:hover {
+		color: $color-secondary-lighten;
+		box-shadow: 0 0 0 1px $color-gray-1, 0 0 10px rgba($color-black, 0.7);
+	}
+
+	&:active {
+		transform: scale(0.8);
+		color: $color-secondary-darken;
+		box-shadow: 0 0 0 1px $color-gray-1, 0 0 4px rgba($color-black, 0.5);
+	}
+
+	&__symbol {
+		fill: $color-white;
+		margin: auto;
+		max-width: 56%;
+		max-height: 56%;
+	}
+
+	&--show {
+		visibility: visible;
+		opacity: 1;
+		transform: none;
+	}
+}

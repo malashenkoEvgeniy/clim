@@ -1,0 +1,10 @@
+<?php
+$GLOBALS['SEOSHIELD_CONFIG']['links_block_csv_update_time'] = '';
+$GLOBALS['SEOSHIELD_CONFIG']['html_comment_to_replace'] = '<!-- links_block -->';
+$GLOBALS['SEOSHIELD_CONFIG']['links_count'] = 4;
+$GLOBALS['SEOSHIELD_CONFIG']['links_block_template'] = array(
+	'before_ul' => '<div class="links_block"><ul>',
+	'after_ul' => '</ul></div>',
+	'before_li' => '<li>',
+	'after_li' => '</li>',
+);

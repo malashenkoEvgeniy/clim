@@ -1,0 +1,19 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.tabs-blocks {
+	display: flex;
+	background-color: $color-white;
+
+	&__block {
+		padding: 1.25rem;
+		width: 100%;
+		box-sizing: border-box;
+
+		&:not(.is-active) {
+			display: none;
+		}
+	}
+}

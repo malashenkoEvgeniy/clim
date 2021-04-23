@@ -1,0 +1,3 @@
+<?php
+// версия seoshield-client
+$GLOBALS['SEOSHIELD_CONFIG']['version']="1.0";

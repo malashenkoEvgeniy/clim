@@ -1,0 +1,9 @@
+.product-sticky {
+	@include media($screen-sm, max) {
+		position: sticky;
+		bottom: -1px;
+		z-index: 9;
+		background: #fff;
+		box-shadow: 0 -5px 0 #fff;
+	}
+}

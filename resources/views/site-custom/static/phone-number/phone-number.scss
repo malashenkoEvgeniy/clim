@@ -1,0 +1,57 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.phone-number {
+	display: block;
+
+	&__link {
+		display: inline-block;
+		vertical-align: top;
+		color: $color-black;
+		text-decoration: none;
+		font-weight: $font-weight-bolder;
+
+		&:hover {
+			color: $color-main;
+			text-decoration: underline;
+		}
+
+		&:active {
+			color: $color-main-darken;
+		}
+
+		&--size-sm {
+			font-size: rem(13);
+		}
+
+		&--size-lg {
+			font-size: rem(20);
+
+			@include media($screen-xl) {
+				font-size: rem(24);
+			}
+		}
+
+		&--size-xl {
+			font-size: rem(20);
+
+			@include media($screen-xxl) {
+				font-size: rem(30);
+			}
+		}
+	}
+
+	&__description {
+		max-width: 180px;
+		font-size: 11px;
+		line-height: 1.2;
+		color: $custom-color-text-muted;
+		margin: 2px 0 0;
+
+		@include media($screen-xxl) {
+			max-width: 230px;
+		}
+	}
+}

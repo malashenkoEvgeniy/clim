@@ -1,0 +1,68 @@
+.compare-table {
+	$this: &;
+	overflow-x: auto;
+	min-height: 200px;
+
+	&__row {
+		display: flex;
+
+		&--char {
+			@include media($screen-def, max) {
+				padding-top: rem(25);
+
+				&:nth-child(even) {
+					#{$this}__cell {
+						background: $color-white;
+					}
+				}
+			}
+		}
+	}
+
+	&__cell {
+		width: rem(200);
+		flex-shrink: 0;
+
+		& + & + & {
+			padding-left: rem(10);
+		}
+
+		@include media($screen-ms) {
+			width: rem(280);
+
+			& + & {
+				padding-left: rem(10);
+			}
+		}
+
+		&--first {
+			padding: rem(10) rem(15);
+			box-sizing: border-box;
+			font-size: rem(15);
+			color: $color-black;
+
+			@include media($screen-def, max) {
+				position: absolute;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				white-space: nowrap;
+				padding: 0;
+				height: 20px;
+				line-height: 20px;
+				margin-top: -20px;
+				color: $color-gray-4;
+				pointer-events: none;
+			}
+		}
+
+		&--char {
+			border-bottom: 1px solid $color-gray-3;
+
+			@include media($screen-def) {
+				border-top: 1px solid $color-gray-3;
+				border-bottom: none;
+			}
+		}
+	}
+}

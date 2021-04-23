@@ -1,0 +1,33 @@
+////
+/// @group vendors/mmenu/
+////
+
+// sass-lint:disable variable-name-format
+$mm_t_cls: ".mm-menu_theme-custom";
+$mm_t_backgroundColor: #eee;
+$mm_t_textColor: $color-black;
+$mm_t_dimmedTextColor: $color-gray-6;
+$mm_t_borderColor: $custom-color-additional;
+$mm_t_emphasizedBackgroundColor: rgba($color-black, 0.03);
+$mm_t_highlightedBackgroundColor: rgba($color-black, 0.06);
+$mm_t_navbarColor: $color-gray-6;
+$mm_t_inputBackgroundColor: rgba($color-black, 0.06);
+$mm_t_pageShadow: 0 0 10px rgba($color-black, 0.2);
+$mm_t_panelShadow: 0 0 10px rgba($color-black, 0.2);
+//@if ($mm_opt_themes_white) {
+//	@include mm_theme_colors(); // sass-lint:disable-line mixin-name-format
+//}
+
+@if ($mm_opt_themes_white) {
+	.mm-menu_theme-custom { // sass-lint:disable-line class-name-format
+		--mm-color-border: #{$custom-color-additional};
+		--mm-color-button: #{$color-gray-6};
+		--mm-color-text: #{$color-black};
+		--mm-color-text-dimmed: #{$color-gray-6};
+		--mm-color-background: #eee;
+		--mm-color-background-highlight: #{rgba($color-black, 0.06)};
+		--mm-color-background-emphasis: #{rgba($color-black, 0.03)};
+		--mm-shadow: 0 0 10px #{rgba($color-black, 0.2)};
+	}
+}
+// sass-lint:enable variable-name-format

@@ -1,0 +1,14 @@
+.account {
+	display: block;
+	height: 100%;
+	background-color: $color-white;
+
+	& > .grid {
+		box-sizing: border-box;
+		height: 100%;
+
+		& > .gcell {
+			height: 100%;
+		}
+	}
+}

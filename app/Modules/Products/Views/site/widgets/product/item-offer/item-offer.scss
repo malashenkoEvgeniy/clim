@@ -1,0 +1,48 @@
+.item-offer {
+	$this: &;
+
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+
+	&__media {
+		display: flex;
+		flex-shrink: 0;
+		margin-right: rem(10);
+
+		&--small {
+			width: rem(40);
+			height: rem(40);
+		}
+
+		&--big {
+			width: rem(60);
+			height: rem(60);
+		}
+	}
+
+	&__image {
+		max-width: 100%;
+		max-height: 100%;
+		margin: auto;
+		width: auto;
+	}
+
+	&__name {
+		&--small {
+			font-size: rem(13);
+			line-height: em(16, 13);
+			color: rgba($color-black, 0.5);
+		}
+
+		&--big {
+			font-size: rem(16);
+			line-height: em(18, 16);
+			color: $color-black;
+		}
+	}
+
+	a#{$this}:hover &__name {
+		color: $color-main;
+	}
+}

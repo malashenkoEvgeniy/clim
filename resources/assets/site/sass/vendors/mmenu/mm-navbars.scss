@@ -1,0 +1,7 @@
+.mm-navbars_top { // sass-lint:disable-line class-name-format
+	.mm-menu_iconbar & { // sass-lint:disable-line class-name-format
+		left: 0;
+		right: 44px;
+		right: var(--mm-iconbar-size); // sass-lint:disable-line no-duplicate-properties
+	}
+}

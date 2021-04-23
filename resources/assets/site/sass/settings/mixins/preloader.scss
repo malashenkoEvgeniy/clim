@@ -1,0 +1,57 @@
+@mixin preloader ($classname: 'is-pending') {
+	$ttf: cubic-bezier(.42, .61, .58, .41);
+
+	box-sizing: border-box;
+	position: relative;
+
+	& > * { // sass-lint:disable-line no-universal-selectors
+		transition-property: opacity, filter;
+		transition-duration: $time-fast;
+		transition-timing-function: ease;
+		will-change: opacity, filter;
+	}
+
+	&.#{$classname} {
+		&::before,
+		&::after {
+			box-sizing: inherit;
+			content: '';
+			position: absolute;
+			z-index: 4;
+			display: block;
+			border: 2px solid $color-main;
+		}
+
+		&::before {
+			left: calc(50% - 30px);
+			top: calc(50% - 30px);
+			width: 60px;
+			height: 60px;
+			animation: rotating 2s $ttf infinite;
+		}
+
+		&::after {
+			left: calc(50% - 20px);
+			top: calc(50% - 20px);
+			width: 40px;
+			height: 40px;
+			animation: rotating 2s $ttf infinite reverse;
+		}
+
+		& > * { // sass-lint:disable-line no-universal-selectors
+			opacity: .3;
+			pointer-events: none;
+			filter: grayscale(1);
+		}
+	}
+
+	@keyframes rotating {
+		0% {
+			transform: rotate(0deg) translateZ(0);
+		}
+
+		100% {
+			transform: rotate(360deg) translateZ(0);
+		}
+	}
+}

@@ -1,0 +1,6 @@
+<?php
+// теги которые надо заменить
+$GLOBALS['SEOSHIELD_CONFIG']['replace_tag']=array(
+	"b",
+	"strong"
+);

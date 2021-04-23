@@ -1,0 +1,78 @@
+<?php
+// имена допустимых переменных на сайте которые передаются методом get (в иных случаях будем получать 404 статус)
+$GLOBALS['SEOSHIELD_CONFIG']['allow_get'] = array(
+	// google analitics
+	'utm_',
+	'utm_source',
+	'utm_medium',
+	'utm_campaign',
+	'utm_term',
+	'utm_content',
+	'fb_action_ids',
+	'fb_action_types',
+	'gclid',
+	// google analitics
+	'test2',
+	'test3'
+);
+
+// если false то 404 страница оформляется в дизайне сайта, иначе запускается до загрузки html
+$GLOBALS['SEOSHIELD_CONFIG']['run_404_start_cms']=false;
+
+// включить проверку на get в url
+$GLOBALS['SEOSHIELD_CONFIG']['run_404_check_get']=true;
+
+// включить проверку на верхний регистр в модуле 404
+$GLOBALS['SEOSHIELD_CONFIG']['run_404_check_strlower']=false;
+
+// включить проверку на пробел
+$GLOBALS['SEOSHIELD_CONFIG']['run_404_check_space']=false;
+
+// включить проверку на два слеша
+$GLOBALS['SEOSHIELD_CONFIG']['run_404_check_slash']=false;
+
+// контентная область сайта для вывода 404 ошибки (указывается для simple dom html)
+$GLOBALS['SEOSHIELD_CONFIG']['way_to_content']="div[id=content]";
+
+// сообщение об ошибке которое выводим на странице 404
+$GLOBALS['SEOSHIELD_CONFIG']['message_404']="<p>К сожалению, страница, к которой Вы обратились, не найдена на нашем сервере.</p>";
+
+// meta title на странице ошибки
+$GLOBALS['SEOSHIELD_CONFIG']['meta_title_404']="404 Страница не найдена";
+
+// пользовательская проверка для сайта, тут можно писать свои проверки, если true, страница вернет 404
+// $GLOBALS['SEOSHIELD_CONFIG']['run_404_check_user_config']=true;
+
+$GLOBALS['SEOSHIELD_CONFIG']['run_404_start_cms_template']='
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>'.$GLOBALS['SEOSHIELD_CONFIG']['meta_title_404'].'</title>
+	<style type="text/css">
+		body{
+			margin:0;
+			padding:0;
+		}
+		#content{
+			width:500px;
+			height:500px;
+			background:black;
+			margin:0 auto;
+			color:#fff;
+			padding:0 20px;
+			font-family:Arial,Tahoma;
+		}
+		h1{
+			padding-top:200px;
+		}
+	</style>
+	</head>
+	<body>
+		<div id="content">
+			<h1>404 Страница не найдена</h1>
+			'.$GLOBALS['SEOSHIELD_CONFIG']['message_404'].'
+		</div>
+	</body>
+</html>
+';

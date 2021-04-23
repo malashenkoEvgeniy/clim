@@ -1,0 +1,14 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.fixed-button {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 9;
+	border: 1px solid $color-gray-1;
+	background: $color-gray-1;
+	box-shadow: 0 0 1px $color-gray-1;
+}

@@ -1,0 +1,20 @@
+.product-aside {
+	$this: &;
+
+	display: none;
+	width: rem(292);
+	flex-shrink: 0;
+
+	&--show {
+		&.is-active {
+			~ #{$this} {
+				display: block;
+			}
+		}
+	}
+
+	&__sticky {
+		position: sticky;
+		top: rem(120);
+	}
+}

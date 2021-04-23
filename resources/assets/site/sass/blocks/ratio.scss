@@ -1,0 +1,17 @@
+////
+/// @group blocks/
+////
+
+/// Description
+.ratio {
+	position: relative;
+	height: 0;
+
+	&--1x1 {
+		padding-top: 100%;
+	}
+
+	> * { // sass-lint:disable-line no-universal-selectors
+		@include absolute-cube(100%);
+	}
+}

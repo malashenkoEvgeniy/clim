@@ -1,0 +1,363 @@
+.control {
+	$this: &;
+	$field-height: rem(54);
+
+	position: relative;
+	display: block;
+
+	&--white {
+		#{$this}__field {
+			background: transparent;
+			color: $color-white;
+
+			&:-webkit-autofill {
+				background-color: transparent !important; // sass-lint:disable-line no-important
+				color: $color-white !important; // sass-lint:disable-line no-important
+			}
+		}
+
+		#{$this}__label {
+			color: $color-white;
+		}
+
+		#{$this}__inner {
+			&::after {
+				background-color: $color-white;
+			}
+		}
+	}
+
+	&__inner {
+		position: relative;
+		display: block;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 1px;
+			background-color: #e5e5e5;
+			transition: transform $time-fast ease;
+			transform-origin: left;
+			will-change: transform;
+		}
+
+		&::before {
+			z-index: 1;
+		}
+
+		&::after {
+			z-index: 2;
+			background-color: $color-main;
+			transform: scaleX(0);
+		}
+	}
+
+	&__label {
+		display: block;
+		color: $color-black;
+		font-size: 13px;
+		font-weight: 300;
+		cursor: pointer;
+	}
+
+	&__field {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		height: $field-height;
+		padding: 0;
+		background-color: $color-white;
+		border: none;
+		color: #010101;
+		font-size: 15px;
+		font-weight: 300;
+		line-height: $field-height;
+		outline: none;
+		transition: border-color $time-fast ease, box-shadow $time-fast ease, color $time-fast ease;
+		will-change: border-color, box-shadow;
+
+		&::placeholder {
+			color: #b5b9c6;
+			font-size: 16px;
+			font-weight: 400;
+			transition: color $time-fast ease;
+			will-change: color;
+		}
+
+		&:focus {
+			&::placeholder {
+				color: #010101;
+			}
+		}
+
+		&:-webkit-autofill ~ .control__label {
+			top: -2px;
+			font-size: 12px;
+		}
+	}
+
+	&--input,
+	&--textarea {
+		#{$this} {
+			&__label {
+				position: absolute;
+				top: calc((#{$field-height} / 2) - (#{rem(14) / 2}));
+				left: 0;
+				z-index: 1;
+				transition-property: top, font-size;
+				transition-duration: $time-fast;
+				transition-timing-function: ease;
+				will-change: top, font-size;
+			}
+		}
+	}
+
+	&--textarea {
+		#{$this} {
+			&__field {
+				min-height: 100px;
+				padding: rem(20) 0;
+				line-height: 1.4;
+				resize: none;
+			}
+		}
+	}
+
+	&--select {
+		#{$this} {
+			&__field {
+				// sass-lint:disable-all
+				border-bottom: 1px solid #e5e5e5;
+				padding-right: 38px;
+				background-image: url(/static/pic/icon-arrow-bottom-thin.svg);
+				background-repeat: no-repeat;
+				background-position: calc(100% - 14px) 50%;
+				background-size: 1.2rem;
+				font-size: 13px;
+				appearance: none !important;
+
+				&::-ms-expand {
+					display: none;
+				}
+
+				option {
+					color: #010101;
+					font-size: 1.1em;
+
+					&[disabled] {
+						display: none;
+					}
+				}
+
+				&:focus {
+					background-image: url(/static/pic/icon-arrow-bottom-thin-reverse.svg);
+					color: #010101;
+				}
+				// sass-lint:enable-all
+			}
+		}
+	}
+
+	&--checkbox,
+	&--radio {
+		display: inline-flex;
+		justify-content: flex-start;
+		align-items: center;
+		max-width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		border: none;
+		box-shadow: none;
+		background-color: rgba($color-white, 0.01);
+		cursor: pointer;
+
+		#{$this} {
+			&__field {
+				@include visuallyhidden();
+			}
+
+			&__icon {
+				flex-shrink: 0;
+				position: relative;
+				display: block;
+				width: 16px;
+				height: 16px;
+				background-color: $color-white;
+				border: 1px solid #e4e4e4;
+				transition: border-color $time-fast ease, background-color $time-fast ease;
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					z-index: 1;
+					display: block;
+					margin: auto;
+					transform-origin: center;
+					transition: $time-fast ease;
+				}
+
+				& + #{$this}__text {
+					padding-left: 10px;
+				}
+			}
+
+			&__text {
+				color: #b5b9c6;
+				font-size: 12px;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				user-select: none;
+			}
+		}
+	}
+
+	&--checkbox {
+		#{$this} {
+			&__field {
+				&:checked ~ {
+					#{$this}__icon {
+						background-color: #387ec6;
+						border-color: #387ec6;
+
+						&::after {
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			&__icon {
+				&::after {
+					top: -5px;
+					width: 10px;
+					height: 7px;
+					border-style: solid;
+					border-width: 2px;
+					border-color: transparent transparent $color-white $color-white;
+					transform: rotate(-45deg) skew(-10deg, -10deg);
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	&--radio {
+		#{$this} {
+			&__field {
+				&:checked ~ {
+					#{$this}__icon {
+						border-color: #387ec6;
+
+						&::after {
+							transform: scale(1);
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			&__icon {
+				border-radius: 50%;
+
+				&::after {
+					width: 8px;
+					height: 8px;
+					border-radius: inherit;
+					background-color: #387ec6;
+					transform: scale(.5);
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	&.in-focus,
+	&.has-value {
+		&#{$this}--input,
+		&#{$this}--textarea {
+			#{$this} {
+				&__inner {
+					&::after {
+						transform: scaleX(1);
+					}
+				}
+
+				&__label {
+					top: -2px;
+					font-size: 12px;
+				}
+			}
+		}
+	}
+
+	// Вынесен отдельным блоки из-за бага в Mozzila, по скольку при склейке стилей Mozzila перестает воспринимать данное правило
+	&:-webkit-autofill {
+		&#{$this}--input,
+		&#{$this}--textarea {
+			#{$this} {
+				&__inner {
+					&::after {
+						transform: scaleX(1);
+					}
+				}
+
+				&__label {
+					top: -2px;
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+
+label {
+	&.has-error {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		font-size: rem(11);
+		background: $color-white;
+		color: $color-danger;
+		padding: 4px 8px;
+		border: 1px solid;
+		margin-top: 5px;
+		z-index: 9;
+		backface-visibility: hidden;
+
+		&::after,
+		&::before {
+			bottom: 100%;
+			left: rem(10);
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+
+		&::after {
+			border-color: rgba($color-white, 0);
+			border-bottom-color: $color-white;
+			border-width: 4px;
+			margin-left: -4px;
+		}
+
+		&::before {
+			border-color: rgba($color-danger, 0);
+			border-bottom-color: $color-danger;
+			border-width: 5px;
+			margin-left: -5px;
+		}
+	}
+}

@@ -1,0 +1,51 @@
+.side-links {
+	position: sticky;
+	top: rem(138px);
+	z-index: 1;
+}
+
+.side-link {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin: 4px 0;
+	padding: 4px 0;
+	color: $color-main;
+	font-size: 12px;
+	font-weight: 300;
+	text-decoration: none;
+
+	@include media($screen-def) {
+		margin: rem(20) 0 rem(10) rem(-30);
+		padding: 0 0 0 rem(30);
+	}
+
+	&[href] {
+		cursor: pointer;
+
+		&:hover {
+			color: $color-secondary;
+			text-decoration: underline;
+		}
+	}
+
+	&.is-active {
+		color: $color-secondary;
+		cursor: default;
+
+		@include media($screen-def) {
+			&::before {
+				content: '';
+				position: absolute;
+				top: calc(50% - 5px);
+				left: -5px;
+				z-index: 1;
+				display: block;
+				width: 8px;
+				height: 8px;
+				background-color: $color-secondary;
+				border-radius: 50%;
+			}
+		}
+	}
+}
