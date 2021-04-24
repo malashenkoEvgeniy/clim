@@ -31,8 +31,8 @@ return [
 
     /*'stripe' => [
         'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+        'key' => .env('STRIPE_KEY'),
+        'secret' => .env('STRIPE_SECRET'),
     ],*/
 
     'turbo' => [
@@ -46,12 +46,12 @@ return [
         'password' => env('ESPUTNIK_PASSWORD'),
         'sender' => env('ESPUTNIK_SENDER')
     ],
-    
+
     'smsRu' => [
         'login' => env('SMSRU_LOGIN'),
         'password' => env('SMSRU_PASSWORD'),
     ],
-    
+
     'sendpulse' => [
         'user_id' => env('SENDPULSE_USER_ID'),
         'secret' => env('SENDPULSE_SECRET'),
