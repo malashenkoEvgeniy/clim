@@ -2,7 +2,7 @@
 
 namespace App\Modules\Users\Models;
 
-use App\Components\Settings\Models\Setting;
+use App\Core\Modules\Settings\Models\Setting;
 use App\Modules\Users\Events\ForgotPasswordEvent;
 use App\Modules\users\Filters\UsersFilter;
 use Carbon\Carbon;

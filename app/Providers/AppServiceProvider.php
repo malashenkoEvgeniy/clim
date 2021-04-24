@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use App\Components\Settings\Models\Setting;
+
 use App\Core\Modules\Languages\Models\Language;
+use App\Core\Modules\Settings\Models\Setting;
 use App\Widgets\Admin\Aside;
 use App\Widgets\Admin\AsideElement;
 use App\Widgets\Admin\Footer;
@@ -62,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
                 }
             );
         }
-    
+
         if (isset($_SERVER['HTTP_USER_AGENT'])) {
             Browserizr::detect();
         }
@@ -76,7 +77,7 @@ class AppServiceProvider extends ServiceProvider
             Widget::register(Footer::class, 'footer');
             Widget::register(Active::class, 'active');
         }
-    
+
         // Registration of global components for site panel
         if (config('app.place') === 'site') {
             // Blade::component('site._components.breadcrumbs.inline', 'breadcrumbs');

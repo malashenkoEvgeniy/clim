@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Components\Settings\Models;
+namespace App\Core\Modules\Settings\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Setting extends Model
 {
-    
+
     protected $fillable = ['value', 'group', 'alias'];
-    
+
 }

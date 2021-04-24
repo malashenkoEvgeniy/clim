@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace App\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
             }
             return redirect('/');
         }
-        
+
         return $next($request);
     }
 }

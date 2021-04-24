@@ -2,10 +2,10 @@
 
 namespace App\Modules\Users;
 
-use App\Components\Settings\Models\Setting;
 use App\Core\BaseProvider;
 use App\Core\Modules\Administrators\Models\RoleRule;
 use App\Core\Modules\Notifications\Types\NotificationType;
+use App\Core\Modules\Settings\Models\Setting;
 use App\Core\ObjectValues\LinkObjectValue;
 use App\Core\ObjectValues\RouteObjectValue;
 use App\Modules\Users\Listeners\NewRegistration;
@@ -43,7 +43,7 @@ use Widget, CustomMenu, Config, CustomSettings, CustomRoles, CustomSiteMenu;
  */
 class Provider extends BaseProvider
 {
-    
+
     /**
      * Set custom presets
      */
@@ -54,7 +54,7 @@ class Provider extends BaseProvider
             NewRegistration::NOTIFICATION_ICON,
             NotificationType::COLOR_AQUA
         );
-        
+
         Config::set('auth.guards.web', [
             'driver' => 'session',
             'provider' => 'users',
@@ -69,7 +69,7 @@ class Provider extends BaseProvider
             'expire' => 60,
         ]);
     }
-    
+
     /**
      * Register widgets and menu for admin panel
      *
@@ -102,7 +102,7 @@ class Provider extends BaseProvider
                 RouteObjectValue::make('admin.users.edit')
             )
             ->setPosition(-1000);
-        
+
         Widget::register(
             new StatCard(
                 User::class,
@@ -119,11 +119,11 @@ class Provider extends BaseProvider
         Widget::register(UserLiveSearchSelect::class, 'live-search-user');
         Widget::register(ShortUserInformation::class, 'short-user-information');
         Widget::register(OrderPage::class, 'users::admin::order-page');
-        
+
         // Register role scopes
         CustomRoles::add('users', 'users::general.menu.list')->except(RoleRule::VIEW);
     }
-    
+
     protected function afterBoot()
     {
         // Register right menu block
@@ -136,7 +136,7 @@ class Provider extends BaseProvider
             'users::site.menu.right.password',
             LinkObjectValue::make(route('site.account.password'))
         );
-        
+
         // Register left menu block
         $menu = CustomSiteMenu::get('account-left');
         $menu->link(
@@ -144,7 +144,7 @@ class Provider extends BaseProvider
             LinkObjectValue::make(route('site.account')),
             'icon-user'
         );
-        
+
         if (\Schema::hasTable((new Setting)->getTable())) {
             foreach (User::getSettingsForSocialsLogin() as $socialName => $checkSocial) {
                 Config::set('services.' . $socialName, [
@@ -154,7 +154,7 @@ class Provider extends BaseProvider
                 ]);
             }
         }
-        
+
         Widget::register(HeaderAuthLink::class, 'header-auth-link');
         Widget::register(UserAccountRightSidebar::class, 'user-account-right-sidebar');
         Widget::register(UserAccountLeftSidebar::class, 'user-account-left-sidebar');
@@ -170,7 +170,7 @@ class Provider extends BaseProvider
         Widget::register(AreYouClientButton::class, 'are-you-client-button');
         Widget::register(CheckoutAuthPopup::class, 'checkout-auth-popup');
     }
-    
+
     /**
      * @throws \App\Exceptions\WrongParametersException
      */
