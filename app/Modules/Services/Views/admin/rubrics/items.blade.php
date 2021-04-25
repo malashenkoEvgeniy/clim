@@ -18,7 +18,7 @@
                             <div class="pull-left">
                                 <div class="overflow-20">
                                     <a class="pageLinkEdit"
-                                       href="{{ route('admin.services_rubrics.edit', ['servicesRubric' => $servicesRubric->id]) }}">
+                                       href="{{ route('admin.services_rubrics.edit', ['id' => $servicesRubric->id]) }}">
                                         {{ $servicesRubric->current->name }}
                                     </a>
                                 </div>

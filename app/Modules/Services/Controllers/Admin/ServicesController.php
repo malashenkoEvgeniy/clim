@@ -102,7 +102,7 @@ class ServicesController extends AdminController
      * @throws \App\Exceptions\WrongParametersException
      */
     public function edit(Service $service)
-    {   dd($service);
+    {  // dd($service);
         // Breadcrumb
         Seo::breadcrumbs()->add($service->current->name ?? 'services::seo.edit');
         // Set h1

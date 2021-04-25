@@ -4,7 +4,6 @@ namespace App\Modules\Services\Forms;
 
 use App\Core\Interfaces\FormInterface;
 use App\Modules\Services\Images\ServicesRubricImage;
-use App\Modules\Services\Models\Service;
 use App\Modules\Services\Models\ServicesRubric;
 use CustomForm\Builder\FieldSet;
 use CustomForm\Builder\Form;
@@ -12,7 +11,6 @@ use CustomForm\Input;
 use CustomForm\Macro\InputForSlug;
 use CustomForm\Macro\Slug;
 use CustomForm\Macro\Toggle;
-use CustomForm\Select;
 use CustomForm\TextArea;
 use CustomForm\TinyMce;
 use CustomForm\Image;
@@ -34,6 +32,7 @@ class ServicesRubricsForm implements FormInterface
     public static function make(?Model $servicesRubric = null): Form
     {
         $servicesRubric = $servicesRubric ?? new ServicesRubric;
+
 
         $form = Form::create();
 

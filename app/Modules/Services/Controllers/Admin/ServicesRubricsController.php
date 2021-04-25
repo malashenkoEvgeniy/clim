@@ -53,6 +53,7 @@ class ServicesRubricsController extends AdminController
      */
     public function create()
     {
+
         // Breadcrumb
         Seo::breadcrumbs()->add('services::seo.create-rubrics');
 
@@ -78,6 +79,7 @@ class ServicesRubricsController extends AdminController
      */
     public function store(ServicesRubricsRequest $request)
     {
+//        dd('store');
 
         $serviceRubric = (new ServicesRubric);
 
@@ -96,8 +98,10 @@ class ServicesRubricsController extends AdminController
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \App\Exceptions\WrongParametersException
      */
-    public function edit(ServicesRubric $servicesRubric)
+    public function edit($id)
     {
+        $servicesRubric = ServicesRubric::where('id', $id)->with('current')->first();
+
         // Breadcrumb
         Seo::breadcrumbs()->add($servicesRubric->current->name ?? 'services::seo.edit-rubric');
         // Set h1
@@ -105,7 +109,7 @@ class ServicesRubricsController extends AdminController
         // Javascript validation
         $this->initValidation((new ServicesRubricsRequest)->rules());
         // Return form view
-          dd($servicesRubric);
+
         return view(
             'services::admin.rubrics.update', [
                 'form' => ServicesRubricsForm::make($servicesRubric),
@@ -123,6 +127,8 @@ class ServicesRubricsController extends AdminController
      */
     public function update(ServicesRubricsRequest $request, ServicesRubric $servicesRubric)
     {
+//        dd('update');
+
         // Update existed page
         if ($message = $servicesRubric->updateRow($request)) {
             return $this->afterFail($message);

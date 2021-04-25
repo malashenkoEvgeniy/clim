@@ -15,6 +15,7 @@ Route::middleware(['auth:admin', 'permission:services'])->group(
         Route::put('services_rubrics/{page}/active', ['uses' => 'ServicesRubricsController@active', 'as' => 'admin.services_rubrics.active']);
         Route::put('services_rubrics/sortable', ['uses' => 'ServicesRubricsController@sortable', 'as' => 'admin.services_rubrics.sortable']);
         Route::get('rubrics/{page}/destroy', ['uses' => 'ServicesRubricsController@destroy', 'as' => 'admin.services_rubrics.destroy']);
+
         Route::resource('rubrics', 'ServicesRubricsController')->except('show', 'destroy')->names('admin.services_rubrics');
     }
 );

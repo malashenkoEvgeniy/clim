@@ -2,6 +2,7 @@
     /** @var \CustomForm\Builder\Form $form */
     $form->buttons->showCloseButton(route('admin.services.index'));
     $url = route('admin.services.update', Route::current()->parameters);
+    dd($url);
 @endphp
 
 @extends('admin.layouts.main')
